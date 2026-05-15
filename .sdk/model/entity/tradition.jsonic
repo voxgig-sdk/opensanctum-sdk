@@ -1,0 +1,127 @@
+# Entity: tradition
+
+main: kit: entity: tradition: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "cultural_significance"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "observance"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "origin"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "practice"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "religion"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "tradition"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 20
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "region"
+                orig: "region"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "religion"
+                orig: "religion"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "search"
+                orig: "search"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/traditions"
+          parts: [
+            "traditions"
+          ]
+          select: {
+            exist: [
+              "limit"
+              "offset"
+              "region"
+              "religion"
+              "search"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

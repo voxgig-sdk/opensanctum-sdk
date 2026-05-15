@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "place": {
+      "PLACE00": {
+        "description": "s64",
+        "id": "PLACE00",
+        "image_url": "s66",
+        "location": {},
+        "name": "s68",
+        "religion": "s69",
+        "significance": "s6a",
+        "type": "s6b",
+        "website": "s6c",
+        "year_established": "s6d"
+      },
+      "PLACE01": {
+        "description": "sc8",
+        "id": "PLACE01",
+        "image_url": "sca",
+        "location": {},
+        "name": "scc",
+        "religion": "scd",
+        "significance": "sce",
+        "type": "scf",
+        "website": "sd0",
+        "year_established": "sd1"
+      },
+      "PLACE02": {
+        "description": "s12c",
+        "id": "PLACE02",
+        "image_url": "s12e",
+        "location": {},
+        "name": "s130",
+        "religion": "s131",
+        "significance": "s132",
+        "type": "s133",
+        "website": "s134",
+        "year_established": "s135"
+      }
+    }
+  },
+  "new": {
+    "place": {
+      "place_ref01": {
+        "description": "s190",
+        "image_url": "s192",
+        "location": {},
+        "name": "s194",
+        "religion": "s195",
+        "significance": "s196",
+        "type": "s197",
+        "website": "s198",
+        "year_established": "s199"
+      }
+    }
+  }
+}

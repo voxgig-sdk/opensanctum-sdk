@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://www.opensanctum.com"
+      }
+      description: "OpenSanctum API provides detailed information about various places of worship and religious traditions around the world. It is designed for users interested in exploring sacred sites, spiritual practices, and diverse faiths globally."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.opensanctum.com/api"
+        }
+      ]
+      title: "OpenSanctum API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

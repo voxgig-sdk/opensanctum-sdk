@@ -1,0 +1,22 @@
+# BasicTraditionFlow
+
+main: kit: flow: BasicTraditionFlow:
+{
+  entity: "tradition",
+  kind: "basic",
+  name: "BasicTraditionFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "tradition_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTraditionFlow"
+}
