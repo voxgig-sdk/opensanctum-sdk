@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/opensanctum-sdk"
-	"github.com/voxgig-sdk/opensanctum-sdk/core"
+	sdk "github.com/voxgig-sdk/opensanctum-sdk/go"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/opensanctum-sdk/go/utility/struct"
 )
 
 func TestTraditionEntity(t *testing.T) {

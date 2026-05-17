@@ -1,10 +1,10 @@
 package voxgigopensanctumsdk
 
 import (
-	"github.com/voxgig-sdk/opensanctum-sdk/core"
-	"github.com/voxgig-sdk/opensanctum-sdk/entity"
-	"github.com/voxgig-sdk/opensanctum-sdk/feature"
-	_ "github.com/voxgig-sdk/opensanctum-sdk/utility"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/core"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/entity"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/feature"
+	_ "github.com/voxgig-sdk/opensanctum-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

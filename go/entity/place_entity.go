@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/opensanctum-sdk/core"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/opensanctum-sdk/go/utility/struct"
 )
 
 type PlaceEntity struct {

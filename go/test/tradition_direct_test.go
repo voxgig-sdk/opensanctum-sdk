@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/opensanctum-sdk"
-	"github.com/voxgig-sdk/opensanctum-sdk/core"
+	sdk "github.com/voxgig-sdk/opensanctum-sdk/go"
+	"github.com/voxgig-sdk/opensanctum-sdk/go/core"
 )
 
 func TestTraditionDirect(t *testing.T) {
