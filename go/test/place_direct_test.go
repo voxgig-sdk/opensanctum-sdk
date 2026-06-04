@@ -93,14 +93,12 @@ func placeDirectSetup(mockres any) *placeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OPENSANCTUM_TEST_PLACE_ENTID": map[string]any{},
 		"OPENSANCTUM_TEST_LIVE":    "FALSE",
-		"OPENSANCTUM_APIKEY":       "NONE",
 	})
 
 	live := env["OPENSANCTUM_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["OPENSANCTUM_APIKEY"],
 		}
 		client := sdk.NewOpensanctumSDK(mergedOpts)
 

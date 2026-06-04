@@ -92,7 +92,6 @@ function tradition_basic_setup(extra)
     ["OPENSANCTUM_TEST_TRADITION_ENTID"] = idmap,
     ["OPENSANCTUM_TEST_LIVE"] = "FALSE",
     ["OPENSANCTUM_TEST_EXPLAIN"] = "FALSE",
-    ["OPENSANCTUM_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function tradition_basic_setup(extra)
   if env["OPENSANCTUM_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["OPENSANCTUM_APIKEY"],
       },
       extra or {},
     })

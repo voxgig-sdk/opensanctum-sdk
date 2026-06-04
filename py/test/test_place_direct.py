@@ -61,14 +61,12 @@ def _place_direct_setup(mockres):
     env = runner.env_override({
         "OPENSANCTUM_TEST_PLACE_ENTID": {},
         "OPENSANCTUM_TEST_LIVE": "FALSE",
-        "OPENSANCTUM_APIKEY": "NONE",
     })
 
     live = env.get("OPENSANCTUM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("OPENSANCTUM_APIKEY"),
         }
         client = OpensanctumSDK(merged_opts)
         return {

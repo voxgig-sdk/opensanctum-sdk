@@ -15,9 +15,6 @@ module OpensanctumConfig
       },
       "options" => {
         "base" => "https://www.opensanctum.com/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

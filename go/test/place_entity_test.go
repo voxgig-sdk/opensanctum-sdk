@@ -119,7 +119,6 @@ func placeBasicSetup(extra map[string]any) *entityTestSetup {
 		"OPENSANCTUM_TEST_PLACE_ENTID": idmap,
 		"OPENSANCTUM_TEST_LIVE":      "FALSE",
 		"OPENSANCTUM_TEST_EXPLAIN":   "FALSE",
-		"OPENSANCTUM_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OPENSANCTUM_TEST_PLACE_ENTID"])
@@ -130,7 +129,6 @@ func placeBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OPENSANCTUM_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["OPENSANCTUM_APIKEY"],
 			},
 			extra,
 		})

@@ -63,14 +63,12 @@ function tradition_direct_setup(mockres)
   local env = runner.env_override({
     ["OPENSANCTUM_TEST_TRADITION_ENTID"] = {},
     ["OPENSANCTUM_TEST_LIVE"] = "FALSE",
-    ["OPENSANCTUM_APIKEY"] = "NONE",
   })
 
   local live = env["OPENSANCTUM_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["OPENSANCTUM_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
