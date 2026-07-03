@@ -10,7 +10,7 @@ The TypeScript SDK for the Opensanctum API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install opensanctum
+npm install @voxgig-sdk/opensanctum
 ```
 ## Tutorial: your first API call
 

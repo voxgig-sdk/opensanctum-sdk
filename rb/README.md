@@ -10,13 +10,13 @@ The Ruby SDK for the Opensanctum API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install opensanctum-sdk
+gem install voxgig-sdk-opensanctum
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "opensanctum-sdk"
+gem "voxgig-sdk-opensanctum"
 ```
 
 Then run:
