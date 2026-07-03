@@ -16,22 +16,7 @@ main: {
       ]
       title: "OpenSanctum API"
       version: "1.0.0"
-      tagline: "Look up places of worship and religious traditions from around the world"
-      homepage: "https://www.opensanctum.com"
-      docs_url: "https://www.opensanctum.com/api"
-      about_md: `[OpenSanctum](https://www.opensanctum.com) is a public API that catalogues places of worship and religious traditions worldwide, intended for projects that explore sacred sites and the diversity of faith communities.
-
-The service exposes two HTTP endpoints under the \`/v1/\` prefix:
-
-- \`GET /v1/religion/id/{id}\` — fetch a religion or tradition by identifier.
-- \`GET /v1/churches/id/{id}\` — fetch a place of worship by identifier.
-
-The API server is \`https://www.opensanctum.com/api\`. CORS is not enabled on the documented endpoints, so browser-side calls from another origin may be blocked; server-side or proxied access is recommended. The upstream service has been reported as intermittently unavailable, so production callers should expect to handle network errors.`
-      entity_desc: {
-        place: "A place of worship (such as a church, temple, mosque, or shrine), fetched by identifier via `GET /v1/churches/id/{id}`."
-        tradition: "A religion or religious tradition record, fetched by identifier via `GET /v1/religion/id/{id}`."
-      }
-      auth: false
     }
   }
 }
+

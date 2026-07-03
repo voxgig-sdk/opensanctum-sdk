@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OPENSANCTUM_TEST_PLACE_ENTID': {},
     'OPENSANCTUM_TEST_LIVE': 'FALSE',
+    'OPENSANCTUM_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OPENSANCTUM_TEST_LIVE
 
   if (live) {
     const client = new OpensanctumSDK({
+      apikey: env.OPENSANCTUM_APIKEY,
     })
 
     let idmap: any = env['OPENSANCTUM_TEST_PLACE_ENTID']

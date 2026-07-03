@@ -1,19 +1,8 @@
 # Opensanctum SDK
 
-Look up places of worship and religious traditions from around the world
+OpenSanctum API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About OpenSanctum API
-
-[OpenSanctum](https://www.opensanctum.com) is a public API that catalogues places of worship and religious traditions worldwide, intended for projects that explore sacred sites and the diversity of faith communities.
-
-The service exposes two HTTP endpoints under the `/v1/` prefix:
-
-- `GET /v1/religion/id/{id}` — fetch a religion or tradition by identifier.
-- `GET /v1/churches/id/{id}` — fetch a place of worship by identifier.
-
-The API server is `https://www.opensanctum.com/api`. CORS is not enabled on the documented endpoints, so browser-side calls from another origin may be blocked; server-side or proxied access is recommended. The upstream service has been reported as intermittently unavailable, so production callers should expect to handle network errors.
 
 ## Try it
 
@@ -47,29 +36,31 @@ gem install opensanctum-sdk
 luarocks install opensanctum-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { OpensanctumSDK } from 'opensanctum'
 
-const client = new OpensanctumSDK({})
+const client = new OpensanctumSDK({
+  apikey: process.env.OPENSANCTUM_APIKEY,
+})
 
 // List all places
 const places = await client.Place().list()
+console.log(places.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Place** | A place of worship (such as a church, temple, mosque, or shrine), fetched by identifier via `GET /v1/churches/id/{id}`. | `/places` |
-| **Tradition** | A religion or religious tradition record, fetched by identifier via `GET /v1/religion/id/{id}`. | `/traditions` |
+| **Place** |  | `/places` |
+| **Tradition** |  | `/traditions` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from opensanctum_sdk import OpensanctumSDK
 
-client = OpensanctumSDK({})
+client = OpensanctumSDK({
+    "apikey": os.environ.get("OPENSANCTUM_APIKEY"),
+})
 
 # List all places
-places, err = client.Place(None).list(None, None)
+places, err = client.Place().list()
+print(places)
 ```
 
 ### PHP
@@ -124,10 +119,13 @@ places, err = client.Place(None).list(None, None)
 <?php
 require_once 'opensanctum_sdk.php';
 
-$client = new OpensanctumSDK([]);
+$client = new OpensanctumSDK([
+    "apikey" => getenv("OPENSANCTUM_APIKEY"),
+]);
 
 // List all places
-[$places, $err] = $client->Place(null)->list(null, null);
+[$places, $err] = $client->Place()->list();
+print_r($places);
 ```
 
 ### Golang
@@ -135,10 +133,13 @@ $client = new OpensanctumSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/opensanctum-sdk/go"
 
-client := sdk.NewOpensanctumSDK(map[string]any{})
+client := sdk.NewOpensanctumSDK(map[string]any{
+    "apikey": os.Getenv("OPENSANCTUM_APIKEY"),
+})
 
 // List all places
 places, err := client.Place(nil).List(nil, nil)
+fmt.Println(places)
 ```
 
 ### Ruby
@@ -146,10 +147,13 @@ places, err := client.Place(nil).List(nil, nil)
 ```ruby
 require_relative "Opensanctum_sdk"
 
-client = OpensanctumSDK.new({})
+client = OpensanctumSDK.new({
+  "apikey" => ENV["OPENSANCTUM_APIKEY"],
+})
 
 # List all places
-places, err = client.Place(nil).list(nil, nil)
+places, err = client.Place().list
+puts places
 ```
 
 ### Lua
@@ -157,10 +161,13 @@ places, err = client.Place(nil).list(nil, nil)
 ```lua
 local sdk = require("opensanctum_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("OPENSANCTUM_APIKEY"),
+})
 
 -- List all places
-local places, err = client:Place(nil):list(nil, nil)
+local places, err = client:Place():list()
+print(places)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +186,21 @@ const result = await client.Place().load({ id: 'test01' })
 ### Python
 
 ```python
-client = OpensanctumSDK.test(None, None)
-result, err = client.Place(None).load(
-    {"id": "test01"}, None
-)
+client = OpensanctumSDK.test()
+result, err = client.Place().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = OpensanctumSDK::test(null, null);
-[$result, $err] = $client->Place(null)->load(
-    ["id" => "test01"], null
-);
+$client = OpensanctumSDK::test();
+[$result, $err] = $client->Place()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Place(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +209,15 @@ result, err := client.Place(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpensanctumSDK.test(nil, nil)
-result, err = client.Place(nil).load(
-  { "id" => "test01" }, nil
-)
+client = OpensanctumSDK.test
+result, err = client.Place().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Place(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Place():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,11 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the OpenSanctum API
-
-- Upstream: [https://www.opensanctum.com](https://www.opensanctum.com)
-- API docs: [https://www.opensanctum.com/api](https://www.opensanctum.com/api)
 
 ---
 

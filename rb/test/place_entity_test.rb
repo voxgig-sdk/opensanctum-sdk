@@ -83,6 +83,7 @@ def place_basic_setup(extra)
     "OPENSANCTUM_TEST_PLACE_ENTID" => idmap,
     "OPENSANCTUM_TEST_LIVE" => "FALSE",
     "OPENSANCTUM_TEST_EXPLAIN" => "FALSE",
+    "OPENSANCTUM_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def place_basic_setup(extra)
   if env["OPENSANCTUM_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["OPENSANCTUM_APIKEY"],
       },
       extra || {},
     ])

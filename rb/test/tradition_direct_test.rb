@@ -62,12 +62,14 @@ def tradition_direct_setup(mockres)
   env = Runner.env_override({
     "OPENSANCTUM_TEST_TRADITION_ENTID" => {},
     "OPENSANCTUM_TEST_LIVE" => "FALSE",
+    "OPENSANCTUM_APIKEY" => "NONE",
   })
 
   live = env["OPENSANCTUM_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["OPENSANCTUM_APIKEY"],
     }
     client = OpensanctumSDK.new(merged_opts)
     return {
