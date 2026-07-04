@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `OpensanctumSDK.test()`.
 ## PlaceEntity
 
 ```ts
-const place = client.Place()
+const place = client.place
 ```
 
 ### Fields
@@ -147,7 +146,7 @@ const place = client.Place()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Place().list()
+const results = await client.place.list()
 ```
 
 ### Common Methods
@@ -181,7 +180,7 @@ Return a copy of the entity options.
 ## TraditionEntity
 
 ```ts
-const tradition = client.Tradition()
+const tradition = client.tradition
 ```
 
 ### Fields
@@ -204,7 +203,7 @@ const tradition = client.Tradition()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Tradition().list()
+const results = await client.tradition.list()
 ```
 
 ### Common Methods

@@ -45,6 +45,7 @@ class PlaceEntity
     end
   end
 
+  # @return [Place, Hash] the current Place data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class PlaceEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Place fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class PlaceEntity
   
 
   
+  # List Place items matching the given filter.
+  #
+  # @param reqmatch [PlaceListMatch, Hash, nil] match filter (any subset of Place fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Place>, Array] the matching Place items; raises OpensanctumError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

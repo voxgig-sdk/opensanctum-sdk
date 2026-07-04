@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'OPENSANCTUM_TEST_PLACE_ENTID': idmap,
     'OPENSANCTUM_TEST_LIVE': 'FALSE',
     'OPENSANCTUM_TEST_EXPLAIN': 'FALSE',
-    'OPENSANCTUM_APIKEY': 'NONE',
   })
 
   idmap = env['OPENSANCTUM_TEST_PLACE_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OpensanctumSDK(merge([
       {
-        apikey: env.OPENSANCTUM_APIKEY,
       },
       extra
     ]))

@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:place():list() / client:place():load({ id = ... })
+function OpensanctumSDK:place(data)
+  local EntityMod = require("entity.place_entity")
+  if data == nil then
+    if self._place == nil then
+      self._place = EntityMod.new(self, nil)
+    end
+    return self._place
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:place() instead.
 function OpensanctumSDK:Place(data)
   local EntityMod = require("entity.place_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:tradition():list() / client:tradition():load({ id = ... })
+function OpensanctumSDK:tradition(data)
+  local EntityMod = require("entity.tradition_entity")
+  if data == nil then
+    if self._tradition == nil then
+      self._tradition = EntityMod.new(self, nil)
+    end
+    return self._tradition
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:tradition() instead.
 function OpensanctumSDK:Tradition(data)
   local EntityMod = require("entity.tradition_entity")
   return EntityMod.new(self, data)

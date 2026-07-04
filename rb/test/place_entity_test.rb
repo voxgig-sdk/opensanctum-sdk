@@ -43,8 +43,7 @@ class PlaceEntityTest < Minitest::Test
     place_ref01_ent = client.Place(nil)
     place_ref01_match = {}
 
-    place_ref01_list_result, err = place_ref01_ent.list(place_ref01_match, nil)
-    assert_nil err
+    place_ref01_list_result = place_ref01_ent.list(place_ref01_match, nil)
     assert place_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def place_basic_setup(extra)
     "OPENSANCTUM_TEST_PLACE_ENTID" => idmap,
     "OPENSANCTUM_TEST_LIVE" => "FALSE",
     "OPENSANCTUM_TEST_EXPLAIN" => "FALSE",
-    "OPENSANCTUM_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def place_basic_setup(extra)
   if env["OPENSANCTUM_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["OPENSANCTUM_APIKEY"],
       },
       extra || {},
     ])

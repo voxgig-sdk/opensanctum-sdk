@@ -245,11 +245,17 @@ func (sdk *OpensanctumSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Place returns a Place entity bound to this client.
+// Idiomatic usage: client.Place(nil).List(nil, nil) or
+// client.Place(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpensanctumSDK) Place(data map[string]any) OpensanctumEntity {
 	return NewPlaceEntityFunc(sdk, data)
 }
 
 
+// Tradition returns a Tradition entity bound to this client.
+// Idiomatic usage: client.Tradition(nil).List(nil, nil) or
+// client.Tradition(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpensanctumSDK) Tradition(data map[string]any) OpensanctumEntity {
 	return NewTraditionEntityFunc(sdk, data)
 }

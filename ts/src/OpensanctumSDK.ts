@@ -3,6 +3,8 @@
 import { PlaceEntity } from './entity/PlaceEntity'
 import { TraditionEntity } from './entity/TraditionEntity'
 
+export type * from './OpensanctumTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class OpensanctumSDK {
 
 
 
+  _place?: PlaceEntity
+
+  // Idiomatic facade: `client.place.list()` / `client.place.load({ id })`.
+  get place(): PlaceEntity {
+    return (this._place ??= new PlaceEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.place` instead. */
   Place(data?: any) {
     const self = this
     return new PlaceEntity(self,data)
   }
 
 
+  _tradition?: TraditionEntity
+
+  // Idiomatic facade: `client.tradition.list()` / `client.tradition.load({ id })`.
+  get tradition(): TraditionEntity {
+    return (this._tradition ??= new TraditionEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.tradition` instead. */
   Tradition(data?: any) {
     const self = this
     return new TraditionEntity(self,data)

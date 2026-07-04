@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch TraditionListMatch
+---@param ctrl? table
+---@return Tradition[]
+---@return string? err
 function TraditionEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

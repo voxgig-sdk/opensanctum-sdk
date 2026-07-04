@@ -50,8 +50,7 @@ class TraditionEntityTest extends TestCase
         $tradition_ref01_ent = $client->Tradition(null);
         $tradition_ref01_match = [];
 
-        [$tradition_ref01_list_result, $err] = $tradition_ref01_ent->list($tradition_ref01_match, null);
-        $this->assertNull($err);
+        $tradition_ref01_list_result = $tradition_ref01_ent->list($tradition_ref01_match, null);
         $this->assertIsArray($tradition_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function tradition_basic_setup($extra)
         "OPENSANCTUM_TEST_TRADITION_ENTID" => $idmap,
         "OPENSANCTUM_TEST_LIVE" => "FALSE",
         "OPENSANCTUM_TEST_EXPLAIN" => "FALSE",
-        "OPENSANCTUM_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function tradition_basic_setup($extra)
     if ($env["OPENSANCTUM_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["OPENSANCTUM_APIKEY"],
             ],
             $extra ?? [],
         ]);

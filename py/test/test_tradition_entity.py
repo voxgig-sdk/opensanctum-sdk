@@ -50,8 +50,7 @@ class TestTraditionEntity:
         tradition_ref01_ent = client.Tradition(None)
         tradition_ref01_match = {}
 
-        tradition_ref01_list_result, err = tradition_ref01_ent.list(tradition_ref01_match, None)
-        assert err is None
+        tradition_ref01_list_result = tradition_ref01_ent.list(tradition_ref01_match, None)
         assert isinstance(tradition_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _tradition_basic_setup(extra):
         "OPENSANCTUM_TEST_TRADITION_ENTID": idmap,
         "OPENSANCTUM_TEST_LIVE": "FALSE",
         "OPENSANCTUM_TEST_EXPLAIN": "FALSE",
-        "OPENSANCTUM_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _tradition_basic_setup(extra):
     if env.get("OPENSANCTUM_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENSANCTUM_APIKEY"),
             },
             extra or {},
         ])

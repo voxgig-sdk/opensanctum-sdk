@@ -50,8 +50,7 @@ class TestPlaceEntity:
         place_ref01_ent = client.Place(None)
         place_ref01_match = {}
 
-        place_ref01_list_result, err = place_ref01_ent.list(place_ref01_match, None)
-        assert err is None
+        place_ref01_list_result = place_ref01_ent.list(place_ref01_match, None)
         assert isinstance(place_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _place_basic_setup(extra):
         "OPENSANCTUM_TEST_PLACE_ENTID": idmap,
         "OPENSANCTUM_TEST_LIVE": "FALSE",
         "OPENSANCTUM_TEST_EXPLAIN": "FALSE",
-        "OPENSANCTUM_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _place_basic_setup(extra):
     if env.get("OPENSANCTUM_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENSANCTUM_APIKEY"),
             },
             extra or {},
         ])

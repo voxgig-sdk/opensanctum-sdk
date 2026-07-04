@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch PlaceListMatch
+---@param ctrl? table
+---@return Place[]
+---@return string? err
 function PlaceEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

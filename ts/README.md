@@ -9,9 +9,12 @@ The TypeScript SDK for the Opensanctum API — a type-safe, entity-oriented clie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/opensanctum
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/opensanctum-sdk/releases](https://github.com/voxgig-sdk/opensanctum-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpensanctumSDK } from 'opensanctum'
+import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
 
-const client = new OpensanctumSDK({
-  apikey: process.env.OPENSANCTUM_APIKEY,
-})
+const client = new OpensanctumSDK()
 ```
 
 ### 2. List places
 
 ```ts
-const result = await client.Place().list()
+const result = await client.place.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OpensanctumSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.place.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new OpensanctumSDK({ apikey: '...' })
+const client = new OpensanctumSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.place
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new OpensanctumSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 OPENSANCTUM_TEST_LIVE=TRUE
-OPENSANCTUM_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new OpensanctumSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new OpensanctumSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -295,7 +292,7 @@ API path: `/traditions`
 
 ### Place
 
-Create an instance: `const place = client.Place()`
+Create an instance: `const place = client.place`
 
 #### Operations
 
@@ -321,13 +318,13 @@ Create an instance: `const place = client.Place()`
 #### Example: List
 
 ```ts
-const places = await client.Place().list()
+const places = await client.place.list()
 ```
 
 
 ### Tradition
 
-Create an instance: `const tradition = client.Tradition()`
+Create an instance: `const tradition = client.tradition`
 
 #### Operations
 
@@ -351,7 +348,7 @@ Create an instance: `const tradition = client.Tradition()`
 #### Example: List
 
 ```ts
-const traditions = await client.Tradition().list()
+const traditions = await client.tradition.list()
 ```
 
 
@@ -412,7 +409,7 @@ opensanctum/
 Import the SDK from the package root:
 
 ```ts
-import { OpensanctumSDK } from 'opensanctum'
+import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
 ```
 
 ### Entity state
@@ -422,11 +419,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const place = client.place
+await place.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// place.data() now returns the loaded place data
+// place.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

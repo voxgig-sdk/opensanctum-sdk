@@ -45,6 +45,7 @@ class TraditionEntity
     end
   end
 
+  # @return [Tradition, Hash] the current Tradition data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class TraditionEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Tradition fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class TraditionEntity
   
 
   
+  # List Tradition items matching the given filter.
+  #
+  # @param reqmatch [TraditionListMatch, Hash, nil] match filter (any subset of Tradition fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Tradition>, Array] the matching Tradition items; raises OpensanctumError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

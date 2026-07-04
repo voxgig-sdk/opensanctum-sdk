@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## PlaceEntity
 
 ```lua
-local place = client:Place(nil)
+local place = client:place(nil)
 ```
 
 ### Fields
@@ -113,7 +112,7 @@ local place = client:Place(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Place():list()
+local results, err = client:place():list()
 ```
 
 ### Common Methods
@@ -149,7 +148,7 @@ Return the entity name.
 ## TraditionEntity
 
 ```lua
-local tradition = client:Tradition(nil)
+local tradition = client:tradition(nil)
 ```
 
 ### Fields
@@ -172,7 +171,7 @@ local tradition = client:Tradition(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Tradition():list()
+local results, err = client:tradition():list()
 ```
 
 ### Common Methods
