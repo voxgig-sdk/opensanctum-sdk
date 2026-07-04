@@ -31,14 +31,16 @@ from opensanctum_sdk import OpensanctumSDK
 client = OpensanctumSDK()
 ```
 
-### 2. List places
+### 2. List place records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.place.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    places = client.Place().list({})
+    for place in places:
+        print(place)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpensanctumSDK.test()
 
-result = client.place.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+place = client.Place().load({"id": "test01"})
+# place contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -247,7 +250,7 @@ API path: `/traditions`
 
 ### Place
 
-Create an instance: `const place = client.place`
+Create an instance: `place = client.Place()`
 
 #### Operations
 
@@ -272,14 +275,14 @@ Create an instance: `const place = client.place`
 
 #### Example: List
 
-```ts
-const places = await client.place.list()
+```python
+places = client.Place().list({})
 ```
 
 
 ### Tradition
 
-Create an instance: `const tradition = client.tradition`
+Create an instance: `tradition = client.Tradition()`
 
 #### Operations
 
@@ -302,8 +305,8 @@ Create an instance: `const tradition = client.tradition`
 
 #### Example: List
 
-```ts
-const traditions = await client.tradition.list()
+```python
+traditions = client.Tradition().list({})
 ```
 
 
@@ -377,7 +380,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-place = client.place
+place = client.Place()
 place.load({"id": "example_id"})
 
 # place.data_get() now returns the loaded place data

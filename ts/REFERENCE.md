@@ -121,7 +121,7 @@ Alias for `OpensanctumSDK.test()`.
 ## PlaceEntity
 
 ```ts
-const place = client.place
+const place = client.Place()
 ```
 
 ### Fields
@@ -146,7 +146,7 @@ const place = client.place
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.place.list()
+const results = await client.Place().list()
 ```
 
 ### Common Methods
@@ -180,7 +180,7 @@ Return a copy of the entity options.
 ## TraditionEntity
 
 ```ts
-const tradition = client.tradition
+const tradition = client.Tradition()
 ```
 
 ### Fields
@@ -203,7 +203,7 @@ const tradition = client.tradition
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.tradition.list()
+const results = await client.Tradition().list()
 ```
 
 ### Common Methods

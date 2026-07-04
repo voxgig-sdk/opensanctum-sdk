@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## PlaceEntity
 
 ```lua
-local place = client:place(nil)
+local place = client:Place(nil)
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ local place = client:place(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:place():list()
+local results, err = client:Place():list()
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ Return the entity name.
 ## TraditionEntity
 
 ```lua
-local tradition = client:tradition(nil)
+local tradition = client:Tradition(nil)
 ```
 
 ### Fields
@@ -171,7 +171,7 @@ local tradition = client:tradition(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:tradition():list()
+local results, err = client:Tradition():list()
 ```
 
 ### Common Methods

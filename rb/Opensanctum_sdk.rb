@@ -208,26 +208,14 @@ class OpensanctumSDK
   end
 
 
-  # Idiomatic facade: client.place.list / client.place.load({ "id" => ... })
-  def place
-    require_relative 'entity/place_entity'
-    @place ||= PlaceEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.place instead.
+  # Canonical facade: client.Place.list / client.Place.load({ "id" => ... })
   def Place(data = nil)
     require_relative 'entity/place_entity'
     PlaceEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.tradition.list / client.tradition.load({ "id" => ... })
-  def tradition
-    require_relative 'entity/tradition_entity'
-    @tradition ||= TraditionEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.tradition instead.
+  # Canonical facade: client.Tradition.list / client.Tradition.load({ "id" => ... })
   def Tradition(data = nil)
     require_relative 'entity/tradition_entity'
     TraditionEntity.new(self, data)

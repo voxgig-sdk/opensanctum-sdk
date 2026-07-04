@@ -220,41 +220,21 @@ class OpensanctumSDK:
         }
 
 
-    @property
-    def place(self):
-        """Idiomatic facade: client.place.list() / client.place.load({"id": ...})."""
-        from entity.place_entity import PlaceEntity
-        cached = getattr(self, "_place", None)
-        if cached is None:
-            cached = PlaceEntity(self, None)
-            self._place = cached
-        return cached
-
-    def Place(self, data=None):
-        # Deprecated: use client.place instead.
+    def Place(self, data=None) -> "PlaceEntity":
+        """Entity factory: client.Place().list({}) / client.Place().load({"id": ...})."""
         from entity.place_entity import PlaceEntity
         return PlaceEntity(self, data)
 
 
-    @property
-    def tradition(self):
-        """Idiomatic facade: client.tradition.list() / client.tradition.load({"id": ...})."""
-        from entity.tradition_entity import TraditionEntity
-        cached = getattr(self, "_tradition", None)
-        if cached is None:
-            cached = TraditionEntity(self, None)
-            self._tradition = cached
-        return cached
-
-    def Tradition(self, data=None):
-        # Deprecated: use client.tradition instead.
+    def Tradition(self, data=None) -> "TraditionEntity":
+        """Entity factory: client.Tradition().list({}) / client.Tradition().load({"id": ...})."""
         from entity.tradition_entity import TraditionEntity
         return TraditionEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "OpensanctumSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class OpensanctumSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.place_entity import PlaceEntity
+    from entity.tradition_entity import TraditionEntity

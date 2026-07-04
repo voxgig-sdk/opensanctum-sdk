@@ -4,61 +4,61 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Place:
-    description: Optional[str] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    location: Optional[dict] = None
-    name: Optional[str] = None
-    religion: Optional[str] = None
-    significance: Optional[str] = None
-    type: Optional[str] = None
-    website: Optional[str] = None
-    year_established: Optional[int] = None
+class Place(TypedDict, total=False):
+    description: str
+    id: str
+    image_url: str
+    location: dict
+    name: str
+    religion: str
+    significance: str
+    type: str
+    website: str
+    year_established: int
 
 
-@dataclass
-class PlaceListMatch:
-    description: Optional[str] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    location: Optional[dict] = None
-    name: Optional[str] = None
-    religion: Optional[str] = None
-    significance: Optional[str] = None
-    type: Optional[str] = None
-    website: Optional[str] = None
-    year_established: Optional[int] = None
+class PlaceListMatch(TypedDict, total=False):
+    description: str
+    id: str
+    image_url: str
+    location: dict
+    name: str
+    religion: str
+    significance: str
+    type: str
+    website: str
+    year_established: int
 
 
-@dataclass
-class Tradition:
-    cultural_significance: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    observance: Optional[list] = None
-    origin: Optional[dict] = None
-    practice: Optional[list] = None
-    religion: Optional[str] = None
+class Tradition(TypedDict, total=False):
+    cultural_significance: str
+    description: str
+    id: str
+    name: str
+    observance: list
+    origin: dict
+    practice: list
+    religion: str
 
 
-@dataclass
-class TraditionListMatch:
-    cultural_significance: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    observance: Optional[list] = None
-    origin: Optional[dict] = None
-    practice: Optional[list] = None
-    religion: Optional[str] = None
-
+class TraditionListMatch(TypedDict, total=False):
+    cultural_significance: str
+    description: str
+    id: str
+    name: str
+    observance: list
+    origin: dict
+    practice: list
+    religion: str

@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## PlaceEntity
 
 ```php
-$place = $client->place();
+$place = $client->Place();
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ $place = $client->place();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->place()->list([]);
+$results = $client->Place()->list([]);
 ```
 
 ### Common Methods
@@ -150,7 +150,7 @@ Return the entity name.
 ## TraditionEntity
 
 ```php
-$tradition = $client->tradition();
+$tradition = $client->Tradition();
 ```
 
 ### Fields
@@ -173,7 +173,7 @@ $tradition = $client->tradition();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->tradition()->list([]);
+$results = $client->Tradition()->list([]);
 ```
 
 ### Common Methods

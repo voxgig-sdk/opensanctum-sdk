@@ -31,17 +31,17 @@ local sdk = require("opensanctum_sdk")
 local client = sdk.new()
 ```
 
-### 2. List places
+### 2. List place records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:place():list()
+local places, err = client:Place():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(places) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:place():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Place():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -190,17 +190,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local place, err = client:Place():load({ id = "example_id" })
+    if err then error(err) end
+    -- place is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -247,7 +252,7 @@ API path: `/traditions`
 
 ### Place
 
-Create an instance: `const place = client.place`
+Create an instance: `local place = client:Place(nil)`
 
 #### Operations
 
@@ -272,14 +277,14 @@ Create an instance: `const place = client.place`
 
 #### Example: List
 
-```ts
-const places = await client.place.list()
+```lua
+local places, err = client:Place():list()
 ```
 
 
 ### Tradition
 
-Create an instance: `const tradition = client.tradition`
+Create an instance: `local tradition = client:Tradition(nil)`
 
 #### Operations
 
@@ -302,8 +307,8 @@ Create an instance: `const tradition = client.tradition`
 
 #### Example: List
 
-```ts
-const traditions = await client.tradition.list()
+```lua
+local traditions, err = client:Tradition():list()
 ```
 
 
@@ -378,7 +383,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local place = client:place()
+local place = client:Place()
 place:load({ id = "example_id" })
 
 -- place:data_get() now returns the loaded place data

@@ -233,10 +233,10 @@ class OpensanctumSDK
 
     private $_place = null;
 
-    // Idiomatic facade: $client->place()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Place() (PHP method
-    // names are case-insensitive).
-    public function place($data = null)
+    // Canonical facade: $client->Place()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->place()
+    // resolves here too.
+    public function Place($data = null)
     {
         require_once __DIR__ . '/entity/place_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class OpensanctumSDK
 
     private $_tradition = null;
 
-    // Idiomatic facade: $client->tradition()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Tradition() (PHP method
-    // names are case-insensitive).
-    public function tradition($data = null)
+    // Canonical facade: $client->Tradition()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tradition()
+    // resolves here too.
+    public function Tradition($data = null)
     {
         require_once __DIR__ . '/entity/tradition_entity.php';
         if ($data === null) {

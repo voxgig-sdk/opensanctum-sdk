@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## PlaceEntity
 
 ```python
-place = client.place
+place = client.Place()
 ```
 
 ### Fields
@@ -109,7 +109,9 @@ place = client.place
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.place.list({})
+results = client.Place().list({})
+for place in results:
+    print(place)
 ```
 
 ### Common Methods
@@ -144,7 +146,7 @@ Return the entity name.
 ## TraditionEntity
 
 ```python
-tradition = client.tradition
+tradition = client.Tradition()
 ```
 
 ### Fields
@@ -167,7 +169,9 @@ tradition = client.tradition
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.tradition.list({})
+results = client.Tradition().list({})
+for tradition in results:
+    print(tradition)
 ```
 
 ### Common Methods

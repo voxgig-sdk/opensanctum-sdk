@@ -28,16 +28,14 @@ require_relative "Opensanctum_sdk"
 client = OpensanctumSDK.new
 ```
 
-### 2. List places
+### 2. List place records
 
 ```ruby
 begin
-  result = client.place.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Place records — iterate directly.
+  places = client.Place.list
+  places.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = OpensanctumSDK.test
+client = OpensanctumSDK.test({
+  "entity" => { "place" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.place.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+place = client.Place.load({ "id" => "test01" })
+puts place
 ```
 
 ### Use a custom fetch function
@@ -250,7 +252,7 @@ API path: `/traditions`
 
 ### Place
 
-Create an instance: `const place = client.place`
+Create an instance: `place = client.Place`
 
 #### Operations
 
@@ -275,14 +277,15 @@ Create an instance: `const place = client.place`
 
 #### Example: List
 
-```ts
-const places = await client.place.list()
+```ruby
+# list returns an Array of Place records (raises on error).
+places = client.Place.list
 ```
 
 
 ### Tradition
 
-Create an instance: `const tradition = client.tradition`
+Create an instance: `tradition = client.Tradition`
 
 #### Operations
 
@@ -305,8 +308,9 @@ Create an instance: `const tradition = client.tradition`
 
 #### Example: List
 
-```ts
-const traditions = await client.tradition.list()
+```ruby
+# list returns an Array of Tradition records (raises on error).
+traditions = client.Tradition.list
 ```
 
 
@@ -381,7 +385,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-place = client.place
+place = client.Place
 place.load({ "id" => "example_id" })
 
 # place.data_get now returns the loaded place data

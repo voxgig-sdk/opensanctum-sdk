@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:place():list() / client:place():load({ id = ... })
-function OpensanctumSDK:place(data)
+-- Idiomatic facade: client:Place():list() / client:Place():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpensanctumSDK:Place(data)
   local EntityMod = require("entity.place_entity")
   if data == nil then
     if self._place == nil then
@@ -256,15 +257,10 @@ function OpensanctumSDK:place(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:place() instead.
-function OpensanctumSDK:Place(data)
-  local EntityMod = require("entity.place_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tradition():list() / client:tradition():load({ id = ... })
-function OpensanctumSDK:tradition(data)
+-- Idiomatic facade: client:Tradition():list() / client:Tradition():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpensanctumSDK:Tradition(data)
   local EntityMod = require("entity.tradition_entity")
   if data == nil then
     if self._tradition == nil then
@@ -272,12 +268,6 @@ function OpensanctumSDK:tradition(data)
     end
     return self._tradition
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:tradition() instead.
-function OpensanctumSDK:Tradition(data)
-  local EntityMod = require("entity.tradition_entity")
   return EntityMod.new(self, data)
 end
 

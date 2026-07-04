@@ -26,9 +26,11 @@ import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
 
 const client = new OpensanctumSDK()
 
-// List all places
-const places = await client.place.list()
-console.log(places.data)
+// List all places (returns Place[])
+const places = await client.Place().list()
+for (const place of places) {
+  console.log(place)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from opensanctum_sdk import OpensanctumSDK
 
 client = OpensanctumSDK()
 
-# List all places
-places = client.place.list()
-print(places)
+# List all places (returns a list, raises on error)
+places = client.Place().list({})
+for place in places:
+    print(place)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'opensanctum_sdk.php';
 
 $client = new OpensanctumSDK();
 
-// List all places (throws on error)
-$places = $client->place()->list();
+// List all places (returns an array; throws on error)
+$places = $client->Place()->list();
 print_r($places);
 ```
 
@@ -121,8 +124,8 @@ require_relative "Opensanctum_sdk"
 
 client = OpensanctumSDK.new
 
-# List all places
-places = client.place.list
+# List all places (returns an Array; raises on error)
+places = client.Place.list
 puts places
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("opensanctum_sdk")
 local client = sdk.new()
 
 -- List all places
-local places, err = client:place():list()
+local places, err = client:Place():list()
 print(places)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = OpensanctumSDK.test()
-const result = await client.place.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const place = await client.Place().load({ id: 'test01' })
+// place is a bare Place populated with mock data
+console.log(place)
 ```
 
 ### Python
 
 ```python
 client = OpensanctumSDK.test()
-result = client.place.load({"id": "test01"})
+place = client.Place().load({"id": "test01"})
+print(place)
 ```
 
 ### PHP
 
 ```php
-$client = OpensanctumSDK::test();
-$result = $client->place()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = OpensanctumSDK::test([
+    "entity" => ["place" => ["test01" => ["id" => "test01"]]],
+]);
+$place = $client->Place()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Place(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpensanctumSDK.test
-result = client.place.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = OpensanctumSDK.test({
+  "entity" => { "place" => { "test01" => { "id" => "test01" } } },
+})
+place = client.Place.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:place():load({ id = "test01" })
+local result, err = client:Place():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
