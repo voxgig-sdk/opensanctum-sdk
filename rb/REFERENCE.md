@@ -8,7 +8,7 @@ Complete API reference for the Opensanctum Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'opensanctum_sdk'
+require_relative 'Opensanctum_sdk'
 
 client = OpensanctumSDK.new(options)
 ```
@@ -97,25 +97,25 @@ place = client.Place
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `religion` | ``$STRING`` | No |  |
-| `significance` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
-| `year_established` | ``$INTEGER`` | No |  |
+| `description` | `String` | No |  |
+| `id` | `String` | No |  |
+| `image_url` | `String` | No |  |
+| `location` | `Hash` | No |  |
+| `name` | `String` | No |  |
+| `religion` | `String` | No |  |
+| `significance` | `String` | No |  |
+| `type` | `String` | No |  |
+| `website` | `String` | No |  |
+| `year_established` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Place.list(nil)
+results = client.Place.list
 ```
 
 ### Common Methods
@@ -158,23 +158,23 @@ tradition = client.Tradition
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `observance` | ``$ARRAY`` | No |  |
-| `origin` | ``$OBJECT`` | No |  |
-| `practice` | ``$ARRAY`` | No |  |
-| `religion` | ``$STRING`` | No |  |
+| `cultural_significance` | `String` | No |  |
+| `description` | `String` | No |  |
+| `id` | `String` | No |  |
+| `name` | `String` | No |  |
+| `observance` | `Array` | No |  |
+| `origin` | `Hash` | No |  |
+| `practice` | `Array` | No |  |
+| `religion` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Tradition.list(nil)
+results = client.Tradition.list
 ```
 
 ### Common Methods

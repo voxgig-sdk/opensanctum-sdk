@@ -94,16 +94,16 @@ local place = client:Place(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `religion` | ``$STRING`` | No |  |
-| `significance` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
-| `year_established` | ``$INTEGER`` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `location` | `table` | No |  |
+| `name` | `string` | No |  |
+| `religion` | `string` | No |  |
+| `significance` | `string` | No |  |
+| `type` | `string` | No |  |
+| `website` | `string` | No |  |
+| `year_established` | `number` | No |  |
 
 ### Operations
 
@@ -155,14 +155,14 @@ local tradition = client:Tradition(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `observance` | ``$ARRAY`` | No |  |
-| `origin` | ``$OBJECT`` | No |  |
-| `practice` | ``$ARRAY`` | No |  |
-| `religion` | ``$STRING`` | No |  |
+| `cultural_significance` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `observance` | `table` | No |  |
+| `origin` | `table` | No |  |
+| `practice` | `table` | No |  |
+| `religion` | `string` | No |  |
 
 ### Operations
 

@@ -18,7 +18,18 @@ export interface Place {
   year_established?: number
 }
 
-export type PlaceListMatch = Partial<Place>
+export interface PlaceListMatch {
+  description?: string
+  id?: string
+  image_url?: string
+  location?: Record<string, any>
+  name?: string
+  religion?: string
+  significance?: string
+  type?: string
+  website?: string
+  year_established?: number
+}
 
 export interface Tradition {
   cultural_significance?: string
@@ -31,5 +42,14 @@ export interface Tradition {
   religion?: string
 }
 
-export type TraditionListMatch = Partial<Tradition>
+export interface TraditionListMatch {
+  cultural_significance?: string
+  description?: string
+  id?: string
+  name?: string
+  observance?: any[]
+  origin?: Record<string, any>
+  practice?: any[]
+  religion?: string
+}
 

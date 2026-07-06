@@ -66,8 +66,12 @@ class PlaceEntity:
     
 
     
-    def list(self, reqmatch: PlaceListMatch, ctrl=None) -> list[Place]:
+    def list(self, reqmatch=None, ctrl=None) -> list[Place]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Place().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

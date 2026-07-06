@@ -91,25 +91,25 @@ place = client.Place()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `religion` | ``$STRING`` | No |  |
-| `significance` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
-| `year_established` | ``$INTEGER`` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | No |  |
+| `image_url` | `str` | No |  |
+| `location` | `dict` | No |  |
+| `name` | `str` | No |  |
+| `religion` | `str` | No |  |
+| `significance` | `str` | No |  |
+| `type` | `str` | No |  |
+| `website` | `str` | No |  |
+| `year_established` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Place().list({})
+results = client.Place().list()
 for place in results:
     print(place)
 ```
@@ -153,23 +153,23 @@ tradition = client.Tradition()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `observance` | ``$ARRAY`` | No |  |
-| `origin` | ``$OBJECT`` | No |  |
-| `practice` | ``$ARRAY`` | No |  |
-| `religion` | ``$STRING`` | No |  |
+| `cultural_significance` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | No |  |
+| `name` | `str` | No |  |
+| `observance` | `list` | No |  |
+| `origin` | `dict` | No |  |
+| `practice` | `list` | No |  |
+| `religion` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Tradition().list({})
+results = client.Tradition().list()
 for tradition in results:
     print(tradition)
 ```

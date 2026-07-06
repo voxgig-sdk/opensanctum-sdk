@@ -22,8 +22,7 @@ type Place struct {
 	YearEstablished *int `json:"year_established,omitempty"`
 }
 
-// PlaceListMatch mirrors the place fields as an all-optional match
-// filter (Go analog of Partial<Place>).
+// PlaceListMatch is the typed request payload for Place.ListTyped.
 type PlaceListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -49,8 +48,7 @@ type Tradition struct {
 	Religion *string `json:"religion,omitempty"`
 }
 
-// TraditionListMatch mirrors the tradition fields as an all-optional match
-// filter (Go analog of Partial<Tradition>).
+// TraditionListMatch is the typed request payload for Tradition.ListTyped.
 type TraditionListMatch struct {
 	CulturalSignificance *string `json:"cultural_significance,omitempty"`
 	Description *string `json:"description,omitempty"`

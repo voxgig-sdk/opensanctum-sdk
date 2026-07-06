@@ -27,7 +27,7 @@ class Place
     public ?int $year_established = null;
 }
 
-/** Match filter for Place#list (any subset of Place fields). */
+/** Request payload for Place#list. */
 class PlaceListMatch
 {
     public ?string $description = null;
@@ -55,7 +55,7 @@ class Tradition
     public ?string $religion = null;
 }
 
-/** Match filter for Tradition#list (any subset of Tradition fields). */
+/** Request payload for Tradition#list. */
 class TraditionListMatch
 {
     public ?string $cultural_significance = null;

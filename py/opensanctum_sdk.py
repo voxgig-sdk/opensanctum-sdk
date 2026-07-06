@@ -221,13 +221,13 @@ class OpensanctumSDK:
 
 
     def Place(self, data=None) -> "PlaceEntity":
-        """Entity factory: client.Place().list({}) / client.Place().load({"id": ...})."""
+        """Entity factory: client.Place().list() / client.Place().load({"id": ...})."""
         from entity.place_entity import PlaceEntity
         return PlaceEntity(self, data)
 
 
     def Tradition(self, data=None) -> "TraditionEntity":
-        """Entity factory: client.Tradition().list({}) / client.Tradition().load({"id": ...})."""
+        """Entity factory: client.Tradition().list() / client.Tradition().load({"id": ...})."""
         from entity.tradition_entity import TraditionEntity
         return TraditionEntity(self, data)
 

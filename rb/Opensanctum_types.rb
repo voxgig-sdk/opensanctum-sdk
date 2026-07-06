@@ -53,7 +53,7 @@ Place = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Place#list (any subset of Place fields).
+# Request payload for Place#list.
 #
 # @!attribute [rw] description
 #   @return [String, nil]
@@ -135,7 +135,7 @@ Tradition = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Tradition#list (any subset of Tradition fields).
+# Request payload for Tradition#list.
 #
 # @!attribute [rw] cultural_significance
 #   @return [String, nil]

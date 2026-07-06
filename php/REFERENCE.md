@@ -49,11 +49,11 @@ Create a new `PlaceEntity` instance. Pass `null` for no initial data.
 
 Create a new `TraditionEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): OpensanctumUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,42 +96,42 @@ $place = $client->Place();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `location` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `religion` | ``$STRING`` | No |  |
-| `significance` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `website` | ``$STRING`` | No |  |
-| `year_established` | ``$INTEGER`` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `location` | `array` | No |  |
+| `name` | `string` | No |  |
+| `religion` | `string` | No |  |
+| `significance` | `string` | No |  |
+| `type` | `string` | No |  |
+| `website` | `string` | No |  |
+| `year_established` | `int` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Place()->list([]);
+$results = $client->Place()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -140,7 +140,7 @@ Set the entity match criteria.
 Create a new `PlaceEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -157,40 +157,40 @@ $tradition = $client->Tradition();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `observance` | ``$ARRAY`` | No |  |
-| `origin` | ``$OBJECT`` | No |  |
-| `practice` | ``$ARRAY`` | No |  |
-| `religion` | ``$STRING`` | No |  |
+| `cultural_significance` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `observance` | `array` | No |  |
+| `origin` | `array` | No |  |
+| `practice` | `array` | No |  |
+| `religion` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Tradition()->list([]);
+$results = $client->Tradition()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -199,7 +199,7 @@ Set the entity match criteria.
 Create a new `TraditionEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
