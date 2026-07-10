@@ -15,9 +15,9 @@ main: {
           url: "https://www.opensanctum.com/api"
         }
       ]
+      summary: "OpenSanctum API provides detailed information about various places of worship and religious traditions around the world."
       title: "OpenSanctum API"
       version: "1.0.0"
+      website: "https://opensanctum.com"
     }
   }
-}
-

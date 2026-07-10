@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 place := client.Place(nil)
+fmt.Println(place.GetName()) // "place"
 ```
 
 ### Fields
@@ -120,6 +121,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Place(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -150,6 +155,7 @@ Return the entity name.
 
 ```go
 tradition := client.Tradition(nil)
+fmt.Println(tradition.GetName()) // "tradition"
 ```
 
 ### Fields
@@ -173,6 +179,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Tradition(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

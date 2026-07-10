@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -466,14 +463,17 @@
           "url": "https://www.opensanctum.com"
         },
         "description": "OpenSanctum API provides detailed information about various places of worship and religious traditions around the world. It is designed for users interested in exploring sacred sites, spiritual practices, and diverse faiths globally.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.opensanctum.com/api"
           }
         ],
+        "summary": "OpenSanctum API provides detailed information about various places of worship and religious traditions around the world.",
         "title": "OpenSanctum API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://opensanctum.com"
       },
       "option": {},
       "target": {
@@ -526,6 +526,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -576,6 +579,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
