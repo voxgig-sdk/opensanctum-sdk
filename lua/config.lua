@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Opensanctum SDK configuration
 
 local function make_config()
   return {

@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Opensanctum SDK exists test
 
 local sdk = require("opensanctum_sdk")
 
