@@ -263,14 +263,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"description"` |  |
 | `"id"` |  |
-| `"image_url"` |  |
+| `"imageUrl"` |  |
 | `"location"` |  |
 | `"name"` |  |
 | `"religion"` |  |
 | `"significance"` |  |
 | `"type"` |  |
 | `"website"` |  |
-| `"year_established"` |  |
+| `"yearEstablished"` |  |
 
 Operations: List.
 
@@ -280,13 +280,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `"cultural_significance"` |  |
+| `"culturalSignificance"` |  |
 | `"description"` |  |
 | `"id"` |  |
 | `"name"` |  |
-| `"observance"` |  |
+| `"observances"` |  |
 | `"origin"` |  |
-| `"practice"` |  |
+| `"practices"` |  |
 | `"religion"` |  |
 
 Operations: List.
@@ -314,14 +314,14 @@ Create an instance: `place := client.Place(nil)`
 | --- | --- | --- |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `location` | `map[string]any` |  |
 | `name` | `string` |  |
 | `religion` | `string` |  |
 | `significance` | `string` |  |
 | `type` | `string` |  |
 | `website` | `string` |  |
-| `year_established` | `int` |  |
+| `yearEstablished` | `int` |  |
 
 #### Example: List
 
@@ -348,13 +348,13 @@ Create an instance: `tradition := client.Tradition(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `string` |  |
+| `culturalSignificance` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `observance` | `[]any` |  |
+| `observances` | `[]any` |  |
 | `origin` | `map[string]any` |  |
-| `practice` | `[]any` |  |
+| `practices` | `[]any` |  |
 | `religion` | `string` |  |
 
 #### Example: List

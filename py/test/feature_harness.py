@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OpensanctumControl
-from core.error import OpensanctumError
-from core.result import OpensanctumResult
-from core.spec import OpensanctumSpec
+from opensanctum_sdk.config import make_config
+from opensanctum_sdk.features import _make_feature
+from opensanctum_sdk.core.control import OpensanctumControl
+from opensanctum_sdk.core.error import OpensanctumError
+from opensanctum_sdk.core.result import OpensanctumResult
+from opensanctum_sdk.core.spec import OpensanctumSpec
 
 
 # True when this SDK was generated with the named feature.

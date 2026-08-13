@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpensanctumSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 place = client.Place().list()
 # place contains the mock response record
 ```
@@ -221,7 +222,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -245,14 +246,14 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `location` |  |
 | `name` |  |
 | `religion` |  |
 | `significance` |  |
 | `type` |  |
 | `website` |  |
-| `year_established` |  |
+| `yearEstablished` |  |
 
 Operations: List.
 
@@ -262,13 +263,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `cultural_significance` |  |
+| `culturalSignificance` |  |
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `observance` |  |
+| `observances` |  |
 | `origin` |  |
-| `practice` |  |
+| `practices` |  |
 | `religion` |  |
 
 Operations: List.
@@ -296,14 +297,14 @@ Create an instance: `place = client.Place()`
 | --- | --- | --- |
 | `description` | `str` |  |
 | `id` | `str` |  |
-| `image_url` | `str` |  |
+| `imageUrl` | `str` |  |
 | `location` | `dict` |  |
 | `name` | `str` |  |
 | `religion` | `str` |  |
 | `significance` | `str` |  |
 | `type` | `str` |  |
 | `website` | `str` |  |
-| `year_established` | `int` |  |
+| `yearEstablished` | `int` |  |
 
 #### Example: List
 
@@ -326,13 +327,13 @@ Create an instance: `tradition = client.Tradition()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `str` |  |
+| `culturalSignificance` | `str` |  |
 | `description` | `str` |  |
 | `id` | `str` |  |
 | `name` | `str` |  |
-| `observance` | `list` |  |
+| `observances` | `list` |  |
 | `origin` | `dict` |  |
-| `practice` | `list` |  |
+| `practices` | `list` |  |
 | `religion` | `str` |  |
 
 #### Example: List

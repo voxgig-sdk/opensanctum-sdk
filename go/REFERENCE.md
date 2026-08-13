@@ -104,14 +104,14 @@ fmt.Println(place.GetName()) // "place"
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `location` | `map[string]any` | No |  |
 | `name` | `string` | No |  |
 | `religion` | `string` | No |  |
 | `significance` | `string` | No |  |
 | `type` | `string` | No |  |
 | `website` | `string` | No |  |
-| `year_established` | `int` | No |  |
+| `yearEstablished` | `int` | No |  |
 
 ### Operations
 
@@ -162,13 +162,13 @@ fmt.Println(tradition.GetName()) // "tradition"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | `string` | No |  |
+| `culturalSignificance` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `observance` | `[]any` | No |  |
+| `observances` | `[]any` | No |  |
 | `origin` | `map[string]any` | No |  |
-| `practice` | `[]any` | No |  |
+| `practices` | `[]any` | No |  |
 | `religion` | `string` | No |  |
 
 ### Operations

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from opensanctum_sdk.utility.voxgig_struct import voxgig_struct as vs
 from opensanctum_sdk import OpensanctumSDK
-from core import helpers
+from opensanctum_sdk.core import helpers
 from test import runner
 
 

@@ -41,7 +41,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "image_url",
+						"name": "imageUrl",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -90,7 +90,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "year_established",
+						"name": "yearEstablished",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 9,
@@ -150,6 +150,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/places",
 								"parts": []any{
@@ -171,7 +172,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -182,7 +182,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "cultural_significance",
+						"name": "culturalSignificance",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -210,7 +210,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "observance",
+						"name": "observances",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 4,
@@ -224,7 +224,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "practice",
+						"name": "practices",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 6,
@@ -291,6 +291,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/traditions",
 								"parts": []any{
@@ -312,7 +313,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

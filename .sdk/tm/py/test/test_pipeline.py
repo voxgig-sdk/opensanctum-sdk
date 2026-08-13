@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import OpensanctumSDK
-from core.error import OpensanctumError
-from core.result import OpensanctumResult
-from core.response import OpensanctumResponse
-from core.spec import OpensanctumSpec
-from feature.base_feature import OpensanctumBaseFeature
+from projectname_sdk.core.error import OpensanctumError
+from projectname_sdk.core.result import OpensanctumResult
+from projectname_sdk.core.response import OpensanctumResponse
+from projectname_sdk.core.spec import OpensanctumSpec
+from projectname_sdk.feature.base_feature import OpensanctumBaseFeature
 
 
 def _client():

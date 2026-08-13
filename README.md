@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OpensanctumSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OpensanctumSDK.test({
+  entity: {
+    place: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const places = await client.Place().list()
-// places is an array of bare Place records populated with mock data
+// places is an array of Place entities, populated with mock data
+// — call places[0].data() for the record itself
 console.log(places)
 ```
 
@@ -110,7 +119,7 @@ import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
 
 const client = new OpensanctumSDK()
 
-// List all places (returns Place[])
+// List all places (returns PlaceEntity[] — .data() for the record)
 const places = await client.Place().list()
 for (const place of places) {
   console.log(place)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.opensanctum.com](https://www.opensanctum.com)
 

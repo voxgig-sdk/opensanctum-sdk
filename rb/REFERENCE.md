@@ -99,14 +99,14 @@ place = client.Place
 | --- | --- | --- | --- |
 | `description` | `String` | No |  |
 | `id` | `String` | No |  |
-| `image_url` | `String` | No |  |
+| `imageUrl` | `String` | No |  |
 | `location` | `Hash` | No |  |
 | `name` | `String` | No |  |
 | `religion` | `String` | No |  |
 | `significance` | `String` | No |  |
 | `type` | `String` | No |  |
 | `website` | `String` | No |  |
-| `year_established` | `Integer` | No |  |
+| `yearEstablished` | `Integer` | No |  |
 
 ### Operations
 
@@ -158,13 +158,13 @@ tradition = client.Tradition
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | `String` | No |  |
+| `culturalSignificance` | `String` | No |  |
 | `description` | `String` | No |  |
 | `id` | `String` | No |  |
 | `name` | `String` | No |  |
-| `observance` | `Array` | No |  |
+| `observances` | `Array` | No |  |
 | `origin` | `Hash` | No |  |
-| `practice` | `Array` | No |  |
+| `practices` | `Array` | No |  |
 | `religion` | `String` | No |  |
 
 ### Operations

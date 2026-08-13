@@ -2,33 +2,33 @@
   "existing": {
     "tradition": {
       "TRADITION00": {
-        "cultural_significance": "s50",
+        "culturalSignificance": "s50",
         "description": "s51",
         "id": "TRADITION00",
         "name": "s53",
-        "observance": [],
+        "observances": [],
         "origin": {},
-        "practice": [],
+        "practices": [],
         "religion": "s57"
       },
       "TRADITION01": {
-        "cultural_significance": "sa0",
+        "culturalSignificance": "sa0",
         "description": "sa1",
         "id": "TRADITION01",
         "name": "sa3",
-        "observance": [],
+        "observances": [],
         "origin": {},
-        "practice": [],
+        "practices": [],
         "religion": "sa7"
       },
       "TRADITION02": {
-        "cultural_significance": "sf0",
+        "culturalSignificance": "sf0",
         "description": "sf1",
         "id": "TRADITION02",
         "name": "sf3",
-        "observance": [],
+        "observances": [],
         "origin": {},
-        "practice": [],
+        "practices": [],
         "religion": "sf7"
       }
     }
@@ -36,12 +36,12 @@
   "new": {
     "tradition": {
       "tradition_ref01": {
-        "cultural_significance": "s140",
+        "culturalSignificance": "s140",
         "description": "s141",
         "name": "s143",
-        "observance": [],
+        "observances": [],
         "origin": {},
-        "practice": [],
+        "practices": [],
         "religion": "s147"
       }
     }

@@ -17,14 +17,14 @@ class Place
 {
     public ?string $description = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?array $location = null;
     public ?string $name = null;
     public ?string $religion = null;
     public ?string $significance = null;
     public ?string $type = null;
     public ?string $website = null;
-    public ?int $year_established = null;
+    public ?int $yearEstablished = null;
 }
 
 /** Request payload for Place#list. */
@@ -32,39 +32,39 @@ class PlaceListMatch
 {
     public ?string $description = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?array $location = null;
     public ?string $name = null;
     public ?string $religion = null;
     public ?string $significance = null;
     public ?string $type = null;
     public ?string $website = null;
-    public ?int $year_established = null;
+    public ?int $yearEstablished = null;
 }
 
 /** Tradition entity data model. */
 class Tradition
 {
-    public ?string $cultural_significance = null;
+    public ?string $culturalSignificance = null;
     public ?string $description = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?array $observance = null;
+    public ?array $observances = null;
     public ?array $origin = null;
-    public ?array $practice = null;
+    public ?array $practices = null;
     public ?string $religion = null;
 }
 
 /** Request payload for Tradition#list. */
 class TraditionListMatch
 {
-    public ?string $cultural_significance = null;
+    public ?string $culturalSignificance = null;
     public ?string $description = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?array $observance = null;
+    public ?array $observances = null;
     public ?array $origin = null;
-    public ?array $practice = null;
+    public ?array $practices = null;
     public ?string $religion = null;
 }
 

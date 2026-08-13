@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = OpensanctumSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 place = client.Place.list()
 puts place
 ```
@@ -239,14 +240,14 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `location` |  |
 | `name` |  |
 | `religion` |  |
 | `significance` |  |
 | `type` |  |
 | `website` |  |
-| `year_established` |  |
+| `yearEstablished` |  |
 
 Operations: List.
 
@@ -256,13 +257,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `cultural_significance` |  |
+| `culturalSignificance` |  |
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `observance` |  |
+| `observances` |  |
 | `origin` |  |
-| `practice` |  |
+| `practices` |  |
 | `religion` |  |
 
 Operations: List.
@@ -290,14 +291,14 @@ Create an instance: `place = client.Place`
 | --- | --- | --- |
 | `description` | `String` |  |
 | `id` | `String` |  |
-| `image_url` | `String` |  |
+| `imageUrl` | `String` |  |
 | `location` | `Hash` |  |
 | `name` | `String` |  |
 | `religion` | `String` |  |
 | `significance` | `String` |  |
 | `type` | `String` |  |
 | `website` | `String` |  |
-| `year_established` | `Integer` |  |
+| `yearEstablished` | `Integer` |  |
 
 #### Example: List
 
@@ -321,13 +322,13 @@ Create an instance: `tradition = client.Tradition`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `String` |  |
+| `culturalSignificance` | `String` |  |
 | `description` | `String` |  |
 | `id` | `String` |  |
 | `name` | `String` |  |
-| `observance` | `Array` |  |
+| `observances` | `Array` |  |
 | `origin` | `Hash` |  |
-| `practice` | `Array` |  |
+| `practices` | `Array` |  |
 | `religion` | `String` |  |
 
 #### Example: List

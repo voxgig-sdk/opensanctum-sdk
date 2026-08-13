@@ -16,7 +16,7 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -37,19 +37,19 @@
 # @!attribute [rw] website
 #   @return [String, nil]
 #
-# @!attribute [rw] year_established
+# @!attribute [rw] yearEstablished
 #   @return [Integer, nil]
 Place = Struct.new(
   :description,
   :id,
-  :image_url,
+  :imageUrl,
   :location,
   :name,
   :religion,
   :significance,
   :type,
   :website,
-  :year_established,
+  :yearEstablished,
   keyword_init: true
 )
 
@@ -61,7 +61,7 @@ Place = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] location
@@ -82,25 +82,25 @@ Place = Struct.new(
 # @!attribute [rw] website
 #   @return [String, nil]
 #
-# @!attribute [rw] year_established
+# @!attribute [rw] yearEstablished
 #   @return [Integer, nil]
 PlaceListMatch = Struct.new(
   :description,
   :id,
-  :image_url,
+  :imageUrl,
   :location,
   :name,
   :religion,
   :significance,
   :type,
   :website,
-  :year_established,
+  :yearEstablished,
   keyword_init: true
 )
 
 # Tradition entity data model.
 #
-# @!attribute [rw] cultural_significance
+# @!attribute [rw] culturalSignificance
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -112,32 +112,32 @@ PlaceListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] observance
+# @!attribute [rw] observances
 #   @return [Array, nil]
 #
 # @!attribute [rw] origin
 #   @return [Hash, nil]
 #
-# @!attribute [rw] practice
+# @!attribute [rw] practices
 #   @return [Array, nil]
 #
 # @!attribute [rw] religion
 #   @return [String, nil]
 Tradition = Struct.new(
-  :cultural_significance,
+  :culturalSignificance,
   :description,
   :id,
   :name,
-  :observance,
+  :observances,
   :origin,
-  :practice,
+  :practices,
   :religion,
   keyword_init: true
 )
 
 # Request payload for Tradition#list.
 #
-# @!attribute [rw] cultural_significance
+# @!attribute [rw] culturalSignificance
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -149,25 +149,25 @@ Tradition = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] observance
+# @!attribute [rw] observances
 #   @return [Array, nil]
 #
 # @!attribute [rw] origin
 #   @return [Hash, nil]
 #
-# @!attribute [rw] practice
+# @!attribute [rw] practices
 #   @return [Array, nil]
 #
 # @!attribute [rw] religion
 #   @return [String, nil]
 TraditionListMatch = Struct.new(
-  :cultural_significance,
+  :culturalSignificance,
   :description,
   :id,
   :name,
-  :observance,
+  :observances,
   :origin,
-  :practice,
+  :practices,
   :religion,
   keyword_init: true
 )

@@ -9,45 +9,45 @@
 ---@class Place
 ---@field description? string
 ---@field id? string
----@field image_url? string
+---@field imageUrl? string
 ---@field location? table
 ---@field name? string
 ---@field religion? string
 ---@field significance? string
 ---@field type? string
 ---@field website? string
----@field year_established? number
+---@field yearEstablished? number
 
 ---@class PlaceListMatch
 ---@field description? string
 ---@field id? string
----@field image_url? string
+---@field imageUrl? string
 ---@field location? table
 ---@field name? string
 ---@field religion? string
 ---@field significance? string
 ---@field type? string
 ---@field website? string
----@field year_established? number
+---@field yearEstablished? number
 
 ---@class Tradition
----@field cultural_significance? string
+---@field culturalSignificance? string
 ---@field description? string
 ---@field id? string
 ---@field name? string
----@field observance? table
+---@field observances? table
 ---@field origin? table
----@field practice? table
+---@field practices? table
 ---@field religion? string
 
 ---@class TraditionListMatch
----@field cultural_significance? string
+---@field culturalSignificance? string
 ---@field description? string
 ---@field id? string
 ---@field name? string
----@field observance? table
+---@field observances? table
 ---@field origin? table
----@field practice? table
+---@field practices? table
 ---@field religion? string
 
 local M = {}

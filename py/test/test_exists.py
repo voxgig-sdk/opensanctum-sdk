@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Opensanctum SDK exists test
 
 import pytest
 from opensanctum_sdk import OpensanctumSDK

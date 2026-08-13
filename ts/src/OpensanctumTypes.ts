@@ -8,48 +8,48 @@
 export interface Place {
   description?: string
   id?: string
-  image_url?: string
+  imageUrl?: string
   location?: Record<string, any>
   name?: string
   religion?: string
   significance?: string
   type?: string
   website?: string
-  year_established?: number
+  yearEstablished?: number
 }
 
 export interface PlaceListMatch {
   description?: string
   id?: string
-  image_url?: string
+  imageUrl?: string
   location?: Record<string, any>
   name?: string
   religion?: string
   significance?: string
   type?: string
   website?: string
-  year_established?: number
+  yearEstablished?: number
 }
 
 export interface Tradition {
-  cultural_significance?: string
+  culturalSignificance?: string
   description?: string
   id?: string
   name?: string
-  observance?: any[]
+  observances?: any[]
   origin?: Record<string, any>
-  practice?: any[]
+  practices?: any[]
   religion?: string
 }
 
 export interface TraditionListMatch {
-  cultural_significance?: string
+  culturalSignificance?: string
   description?: string
   id?: string
   name?: string
-  observance?: any[]
+  observances?: any[]
   origin?: Record<string, any>
-  practice?: any[]
+  practices?: any[]
   religion?: string
 }
 

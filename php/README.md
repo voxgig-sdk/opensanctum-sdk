@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = OpensanctumSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $place = $client->Place()->list();
 print_r($place);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -249,14 +250,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `location` |  |
 | `name` |  |
 | `religion` |  |
 | `significance` |  |
 | `type` |  |
 | `website` |  |
-| `year_established` |  |
+| `yearEstablished` |  |
 
 Operations: List.
 
@@ -266,13 +267,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `cultural_significance` |  |
+| `culturalSignificance` |  |
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `observance` |  |
+| `observances` |  |
 | `origin` |  |
-| `practice` |  |
+| `practices` |  |
 | `religion` |  |
 
 Operations: List.
@@ -300,14 +301,14 @@ Create an instance: `$place = $client->Place();`
 | --- | --- | --- |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `location` | `array` |  |
 | `name` | `string` |  |
 | `religion` | `string` |  |
 | `significance` | `string` |  |
 | `type` | `string` |  |
 | `website` | `string` |  |
-| `year_established` | `int` |  |
+| `yearEstablished` | `int` |  |
 
 #### Example: List
 
@@ -331,13 +332,13 @@ Create an instance: `$tradition = $client->Tradition();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `string` |  |
+| `culturalSignificance` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `observance` | `array` |  |
+| `observances` | `array` |  |
 | `origin` | `array` |  |
-| `practice` | `array` |  |
+| `practices` | `array` |  |
 | `religion` | `string` |  |
 
 #### Example: List

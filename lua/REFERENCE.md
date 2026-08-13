@@ -96,14 +96,14 @@ local place = client:Place(nil)
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `location` | `table` | No |  |
 | `name` | `string` | No |  |
 | `religion` | `string` | No |  |
 | `significance` | `string` | No |  |
 | `type` | `string` | No |  |
 | `website` | `string` | No |  |
-| `year_established` | `number` | No |  |
+| `yearEstablished` | `number` | No |  |
 
 ### Operations
 
@@ -155,13 +155,13 @@ local tradition = client:Tradition(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | `string` | No |  |
+| `culturalSignificance` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `observance` | `table` | No |  |
+| `observances` | `table` | No |  |
 | `origin` | `table` | No |  |
-| `practice` | `table` | No |  |
+| `practices` | `table` | No |  |
 | `religion` | `string` | No |  |
 
 ### Operations

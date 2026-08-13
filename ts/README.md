@@ -35,7 +35,9 @@ const client = new OpensanctumSDK()
 
 ### 2. List place records
 
-`list()` resolves to an array of Place objects — iterate it directly:
+`list()` resolves to an array of Place ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const places = await client.Place().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = OpensanctumSDK.test()
 
 const place = await client.Place().list()
-// place is a bare entity populated with mock response data
+// place is the entity, populated with mock response data
+// — call place.data() for the record itself
 console.log(place)
 ```
 
@@ -287,14 +290,14 @@ The `prepare()` method returns:
 | --- | --- |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `location` |  |
 | `name` |  |
 | `religion` |  |
 | `significance` |  |
 | `type` |  |
 | `website` |  |
-| `year_established` |  |
+| `yearEstablished` |  |
 
 Operations: list.
 
@@ -304,13 +307,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `cultural_significance` |  |
+| `culturalSignificance` |  |
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `observance` |  |
+| `observances` |  |
 | `origin` |  |
-| `practice` |  |
+| `practices` |  |
 | `religion` |  |
 
 Operations: list.
@@ -338,14 +341,14 @@ Create an instance: `const place = client.Place()`
 | --- | --- | --- |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `location` | `Record<string, any>` |  |
 | `name` | `string` |  |
 | `religion` | `string` |  |
 | `significance` | `string` |  |
 | `type` | `string` |  |
 | `website` | `string` |  |
-| `year_established` | `number` |  |
+| `yearEstablished` | `number` |  |
 
 #### Example: List
 
@@ -368,13 +371,13 @@ Create an instance: `const tradition = client.Tradition()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `string` |  |
+| `culturalSignificance` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `observance` | `any[]` |  |
+| `observances` | `any[]` |  |
 | `origin` | `Record<string, any>` |  |
-| `practice` | `any[]` |  |
+| `practices` | `any[]` |  |
 | `religion` | `string` |  |
 
 #### Example: List

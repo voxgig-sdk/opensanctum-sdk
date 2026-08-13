@@ -47,7 +47,7 @@ class OpensanctumConfig
             ],
             [
               'active' => true,
-              'name' => 'image_url',
+              'name' => 'imageUrl',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
@@ -96,7 +96,7 @@ class OpensanctumConfig
             ],
             [
               'active' => true,
-              'name' => 'year_established',
+              'name' => 'yearEstablished',
               'req' => false,
               'type' => '`$INTEGER`',
               'index$' => 9,
@@ -156,6 +156,7 @@ class OpensanctumConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/places',
                   'parts' => [
@@ -188,7 +189,7 @@ class OpensanctumConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'cultural_significance',
+              'name' => 'culturalSignificance',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 0,
@@ -216,7 +217,7 @@ class OpensanctumConfig
             ],
             [
               'active' => true,
-              'name' => 'observance',
+              'name' => 'observances',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 4,
@@ -230,7 +231,7 @@ class OpensanctumConfig
             ],
             [
               'active' => true,
-              'name' => 'practice',
+              'name' => 'practices',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 6,
@@ -297,6 +298,7 @@ class OpensanctumConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/traditions',
                   'parts' => [

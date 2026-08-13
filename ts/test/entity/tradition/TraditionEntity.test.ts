@@ -63,7 +63,7 @@ describe('TraditionEntity', async () => {
     const tradition_ref01_ent = client.Tradition()
     const tradition_ref01_match: any = {}
 
-    const tradition_ref01_list = await tradition_ref01_ent.list(tradition_ref01_match)
+    const tradition_ref01_list = (await tradition_ref01_ent.list(tradition_ref01_match)).map((e: any) => e.data())
 
 
   })

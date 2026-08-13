@@ -98,14 +98,14 @@ $place = $client->Place();
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `location` | `array` | No |  |
 | `name` | `string` | No |  |
 | `religion` | `string` | No |  |
 | `significance` | `string` | No |  |
 | `type` | `string` | No |  |
 | `website` | `string` | No |  |
-| `year_established` | `int` | No |  |
+| `yearEstablished` | `int` | No |  |
 
 ### Operations
 
@@ -157,13 +157,13 @@ $tradition = $client->Tradition();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | `string` | No |  |
+| `culturalSignificance` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `observance` | `array` | No |  |
+| `observances` | `array` | No |  |
 | `origin` | `array` | No |  |
-| `practice` | `array` | No |  |
+| `practices` | `array` | No |  |
 | `religion` | `string` | No |  |
 
 ### Operations

@@ -37,7 +37,7 @@ class TraditionEntity extends OpensanctumEntityBase<Tradition> {
 
 
 
-  async list(this: any, reqmatch?: TraditionListMatch, ctrl?: Control): Promise<Tradition[]> {
+  async list(this: any, reqmatch?: TraditionListMatch, ctrl?: Control): Promise<TraditionEntity[]> {
 
     const utility = this._utility
 

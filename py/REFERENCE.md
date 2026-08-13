@@ -93,14 +93,14 @@ place = client.Place()
 | --- | --- | --- | --- |
 | `description` | `str` | No |  |
 | `id` | `str` | No |  |
-| `image_url` | `str` | No |  |
+| `imageUrl` | `str` | No |  |
 | `location` | `dict` | No |  |
 | `name` | `str` | No |  |
 | `religion` | `str` | No |  |
 | `significance` | `str` | No |  |
 | `type` | `str` | No |  |
 | `website` | `str` | No |  |
-| `year_established` | `int` | No |  |
+| `yearEstablished` | `int` | No |  |
 
 ### Operations
 
@@ -153,13 +153,13 @@ tradition = client.Tradition()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cultural_significance` | `str` | No |  |
+| `culturalSignificance` | `str` | No |  |
 | `description` | `str` | No |  |
 | `id` | `str` | No |  |
 | `name` | `str` | No |  |
-| `observance` | `list` | No |  |
+| `observances` | `list` | No |  |
 | `origin` | `dict` | No |  |
-| `practice` | `list` | No |  |
+| `practices` | `list` | No |  |
 | `religion` | `str` | No |  |
 
 ### Operations

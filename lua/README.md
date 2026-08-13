@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local place, err = client:Place():load()
+    local place, err = client:Place():list()
     if err then error(err) end
-    -- place is the loaded record
+    -- place is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -234,14 +234,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `location` |  |
 | `name` |  |
 | `religion` |  |
 | `significance` |  |
 | `type` |  |
 | `website` |  |
-| `year_established` |  |
+| `yearEstablished` |  |
 
 Operations: List.
 
@@ -251,13 +251,13 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `cultural_significance` |  |
+| `culturalSignificance` |  |
 | `description` |  |
 | `id` |  |
 | `name` |  |
-| `observance` |  |
+| `observances` |  |
 | `origin` |  |
-| `practice` |  |
+| `practices` |  |
 | `religion` |  |
 
 Operations: List.
@@ -285,14 +285,14 @@ Create an instance: `local place = client:Place(nil)`
 | --- | --- | --- |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `location` | `table` |  |
 | `name` | `string` |  |
 | `religion` | `string` |  |
 | `significance` | `string` |  |
 | `type` | `string` |  |
 | `website` | `string` |  |
-| `year_established` | `number` |  |
+| `yearEstablished` | `number` |  |
 
 #### Example: List
 
@@ -315,13 +315,13 @@ Create an instance: `local tradition = client:Tradition(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cultural_significance` | `string` |  |
+| `culturalSignificance` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `observance` | `table` |  |
+| `observances` | `table` |  |
 | `origin` | `table` |  |
-| `practice` | `table` |  |
+| `practices` | `table` |  |
 | `religion` | `string` |  |
 
 #### Example: List
