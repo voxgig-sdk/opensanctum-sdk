@@ -23,8 +23,8 @@ class OpensanctumSDK:
         utility = OpensanctumUtility()
         self._utility = utility
 
-        from opensanctum_sdk.config import make_config
-        config = make_config()
+        from opensanctum_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

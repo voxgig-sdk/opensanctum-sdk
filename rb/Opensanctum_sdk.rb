@@ -28,7 +28,7 @@ class OpensanctumSDK
     utility = OpensanctumUtility.new
     @_utility = utility
 
-    config = OpensanctumConfig.make_config
+    config = OpensanctumConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

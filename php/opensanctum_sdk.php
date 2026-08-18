@@ -40,7 +40,7 @@ class OpensanctumSDK
         $utility = new OpensanctumUtility();
         $this->_utility = $utility;
 
-        $config = OpensanctumConfig::make_config();
+        $config = OpensanctumConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
