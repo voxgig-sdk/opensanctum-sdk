@@ -6,7 +6,7 @@ The Golang SDK for the Opensanctum API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Place(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,16 +261,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"id"` |  |
-| `"imageUrl"` |  |
+| `"description"` | Detailed description of the place |
+| `"id"` | Unique identifier for the place |
+| `"imageUrl"` | URL to an image of the place |
 | `"location"` |  |
-| `"name"` |  |
-| `"religion"` |  |
-| `"significance"` |  |
-| `"type"` |  |
-| `"website"` |  |
-| `"yearEstablished"` |  |
+| `"name"` | Name of the place of worship |
+| `"religion"` | Primary religion or faith tradition |
+| `"significance"` | Historical or spiritual significance |
+| `"type"` | Type of worship site |
+| `"website"` | Official website URL |
+| `"yearEstablished"` | Year the place was established or built |
 
 Operations: List.
 
@@ -280,14 +280,14 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `"culturalSignificance"` |  |
-| `"description"` |  |
-| `"id"` |  |
-| `"name"` |  |
-| `"observances"` |  |
+| `"culturalSignificance"` | Cultural and historical significance |
+| `"description"` | Detailed description of the tradition |
+| `"id"` | Unique identifier for the tradition |
+| `"name"` | Name of the religious tradition or practice |
+| `"observances"` | Regular observances or ceremonies |
 | `"origin"` |  |
-| `"practices"` |  |
-| `"religion"` |  |
+| `"practices"` | List of associated practices or rituals |
+| `"religion"` | Associated religion |
 
 Operations: List.
 
@@ -312,16 +312,16 @@ Create an instance: `place := client.Place(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
+| `description` | `string` | Detailed description of the place |
+| `id` | `string` | Unique identifier for the place |
+| `imageUrl` | `string` | URL to an image of the place |
 | `location` | `map[string]any` |  |
-| `name` | `string` |  |
-| `religion` | `string` |  |
-| `significance` | `string` |  |
-| `type` | `string` |  |
-| `website` | `string` |  |
-| `yearEstablished` | `int` |  |
+| `name` | `string` | Name of the place of worship |
+| `religion` | `string` | Primary religion or faith tradition |
+| `significance` | `string` | Historical or spiritual significance |
+| `type` | `string` | Type of worship site |
+| `website` | `string` | Official website URL |
+| `yearEstablished` | `int` | Year the place was established or built |
 
 #### Example: List
 
@@ -348,14 +348,14 @@ Create an instance: `tradition := client.Tradition(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `culturalSignificance` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `observances` | `[]any` |  |
+| `culturalSignificance` | `string` | Cultural and historical significance |
+| `description` | `string` | Detailed description of the tradition |
+| `id` | `string` | Unique identifier for the tradition |
+| `name` | `string` | Name of the religious tradition or practice |
+| `observances` | `[]any` | Regular observances or ceremonies |
 | `origin` | `map[string]any` |  |
-| `practices` | `[]any` |  |
-| `religion` | `string` |  |
+| `practices` | `[]any` | List of associated practices or rituals |
+| `religion` | `string` | Associated religion |
 
 #### Example: List
 

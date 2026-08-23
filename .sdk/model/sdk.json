@@ -36,18 +36,21 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the place",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the place",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "URL to an image of the place",
               "type": "`$STRING`"
             },
             {
@@ -60,36 +63,42 @@
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the place of worship",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "religion",
               "req": false,
+              "short": "Primary religion or faith tradition",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "significance",
               "req": false,
+              "short": "Historical or spiritual significance",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of worship site",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "website",
               "req": false,
+              "short": "Official website URL",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "yearEstablished",
               "req": false,
+              "short": "Year the place was established or built",
               "type": "`$INTEGER`"
             }
           ],
@@ -188,30 +197,35 @@
               "active": true,
               "name": "culturalSignificance",
               "req": false,
+              "short": "Cultural and historical significance",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the tradition",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the tradition",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the religious tradition or practice",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "observances",
               "req": false,
+              "short": "Regular observances or ceremonies",
               "type": "`$ARRAY`"
             },
             {
@@ -224,12 +238,14 @@
               "active": true,
               "name": "practices",
               "req": false,
+              "short": "List of associated practices or rituals",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "religion",
               "req": false,
+              "short": "Associated religion",
               "type": "`$STRING`"
             }
           ],

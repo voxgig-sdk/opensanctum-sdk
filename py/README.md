@@ -244,16 +244,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `description` | Detailed description of the place |
+| `id` | Unique identifier for the place |
+| `imageUrl` | URL to an image of the place |
 | `location` |  |
-| `name` |  |
-| `religion` |  |
-| `significance` |  |
-| `type` |  |
-| `website` |  |
-| `yearEstablished` |  |
+| `name` | Name of the place of worship |
+| `religion` | Primary religion or faith tradition |
+| `significance` | Historical or spiritual significance |
+| `type` | Type of worship site |
+| `website` | Official website URL |
+| `yearEstablished` | Year the place was established or built |
 
 Operations: List.
 
@@ -263,14 +263,14 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `culturalSignificance` |  |
-| `description` |  |
-| `id` |  |
-| `name` |  |
-| `observances` |  |
+| `culturalSignificance` | Cultural and historical significance |
+| `description` | Detailed description of the tradition |
+| `id` | Unique identifier for the tradition |
+| `name` | Name of the religious tradition or practice |
+| `observances` | Regular observances or ceremonies |
 | `origin` |  |
-| `practices` |  |
-| `religion` |  |
+| `practices` | List of associated practices or rituals |
+| `religion` | Associated religion |
 
 Operations: List.
 
@@ -295,16 +295,16 @@ Create an instance: `place = client.Place()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `str` |  |
-| `id` | `str` |  |
-| `imageUrl` | `str` |  |
+| `description` | `str` | Detailed description of the place |
+| `id` | `str` | Unique identifier for the place |
+| `imageUrl` | `str` | URL to an image of the place |
 | `location` | `dict` |  |
-| `name` | `str` |  |
-| `religion` | `str` |  |
-| `significance` | `str` |  |
-| `type` | `str` |  |
-| `website` | `str` |  |
-| `yearEstablished` | `int` |  |
+| `name` | `str` | Name of the place of worship |
+| `religion` | `str` | Primary religion or faith tradition |
+| `significance` | `str` | Historical or spiritual significance |
+| `type` | `str` | Type of worship site |
+| `website` | `str` | Official website URL |
+| `yearEstablished` | `int` | Year the place was established or built |
 
 #### Example: List
 
@@ -327,14 +327,14 @@ Create an instance: `tradition = client.Tradition()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `culturalSignificance` | `str` |  |
-| `description` | `str` |  |
-| `id` | `str` |  |
-| `name` | `str` |  |
-| `observances` | `list` |  |
+| `culturalSignificance` | `str` | Cultural and historical significance |
+| `description` | `str` | Detailed description of the tradition |
+| `id` | `str` | Unique identifier for the tradition |
+| `name` | `str` | Name of the religious tradition or practice |
+| `observances` | `list` | Regular observances or ceremonies |
 | `origin` | `dict` |  |
-| `practices` | `list` |  |
-| `religion` | `str` |  |
+| `practices` | `list` | List of associated practices or rituals |
+| `religion` | `str` | Associated religion |
 
 #### Example: List
 

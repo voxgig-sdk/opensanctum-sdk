@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Opensanctum',
+        slug: "opensanctum",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,14 +70,17 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Detailed description of the place",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the place",
           "type": "`$STRING`"
         },
         {
           "name": "imageUrl",
+          "short": "URL to an image of the place",
           "type": "`$STRING`"
         },
         {
@@ -75,26 +89,32 @@ class Config {
         },
         {
           "name": "name",
+          "short": "Name of the place of worship",
           "type": "`$STRING`"
         },
         {
           "name": "religion",
+          "short": "Primary religion or faith tradition",
           "type": "`$STRING`"
         },
         {
           "name": "significance",
+          "short": "Historical or spiritual significance",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Type of worship site",
           "type": "`$STRING`"
         },
         {
           "name": "website",
+          "short": "Official website URL",
           "type": "`$STRING`"
         },
         {
           "name": "yearEstablished",
+          "short": "Year the place was established or built",
           "type": "`$INTEGER`"
         }
       ],
@@ -172,22 +192,27 @@ class Config {
       "fields": [
         {
           "name": "culturalSignificance",
+          "short": "Cultural and historical significance",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed description of the tradition",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the tradition",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the religious tradition or practice",
           "type": "`$STRING`"
         },
         {
           "name": "observances",
+          "short": "Regular observances or ceremonies",
           "type": "`$ARRAY`"
         },
         {
@@ -196,10 +221,12 @@ class Config {
         },
         {
           "name": "practices",
+          "short": "List of associated practices or rituals",
           "type": "`$ARRAY`"
         },
         {
           "name": "religion",
+          "short": "Associated religion",
           "type": "`$STRING`"
         }
       ],

@@ -8,16 +8,19 @@ main: kit: entity: place: {
     {
       name: "description"
       req: false
+      short: "Detailed description of the place"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the place"
       type: "`$STRING`"
     }
     {
       name: "imageUrl"
       req: false
+      short: "URL to an image of the place"
       type: "`$STRING`"
     }
     {
@@ -28,31 +31,37 @@ main: kit: entity: place: {
     {
       name: "name"
       req: false
+      short: "Name of the place of worship"
       type: "`$STRING`"
     }
     {
       name: "religion"
       req: false
+      short: "Primary religion or faith tradition"
       type: "`$STRING`"
     }
     {
       name: "significance"
       req: false
+      short: "Historical or spiritual significance"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "Type of worship site"
       type: "`$STRING`"
     }
     {
       name: "website"
       req: false
+      short: "Official website URL"
       type: "`$STRING`"
     }
     {
       name: "yearEstablished"
       req: false
+      short: "Year the place was established or built"
       type: "`$INTEGER`"
     }
   ]

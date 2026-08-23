@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Opensanctum",
+			"slug": "opensanctum",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,14 +37,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the place",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the place",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "URL to an image of the place",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -50,26 +56,32 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the place of worship",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "religion",
+						"short": "Primary religion or faith tradition",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "significance",
+						"short": "Historical or spiritual significance",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of worship site",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "website",
+						"short": "Official website URL",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "yearEstablished",
+						"short": "Year the place was established or built",
 						"type": "`$INTEGER`",
 					},
 				},
@@ -147,22 +159,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "culturalSignificance",
+						"short": "Cultural and historical significance",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the tradition",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the tradition",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the religious tradition or practice",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "observances",
+						"short": "Regular observances or ceremonies",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
@@ -171,10 +188,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "practices",
+						"short": "List of associated practices or rituals",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "religion",
+						"short": "Associated religion",
 						"type": "`$STRING`",
 					},
 				},

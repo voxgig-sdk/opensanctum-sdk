@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,16 +288,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `description` | Detailed description of the place |
+| `id` | Unique identifier for the place |
+| `imageUrl` | URL to an image of the place |
 | `location` |  |
-| `name` |  |
-| `religion` |  |
-| `significance` |  |
-| `type` |  |
-| `website` |  |
-| `yearEstablished` |  |
+| `name` | Name of the place of worship |
+| `religion` | Primary religion or faith tradition |
+| `significance` | Historical or spiritual significance |
+| `type` | Type of worship site |
+| `website` | Official website URL |
+| `yearEstablished` | Year the place was established or built |
 
 Operations: list.
 
@@ -307,14 +307,14 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `culturalSignificance` |  |
-| `description` |  |
-| `id` |  |
-| `name` |  |
-| `observances` |  |
+| `culturalSignificance` | Cultural and historical significance |
+| `description` | Detailed description of the tradition |
+| `id` | Unique identifier for the tradition |
+| `name` | Name of the religious tradition or practice |
+| `observances` | Regular observances or ceremonies |
 | `origin` |  |
-| `practices` |  |
-| `religion` |  |
+| `practices` | List of associated practices or rituals |
+| `religion` | Associated religion |
 
 Operations: list.
 
@@ -339,16 +339,16 @@ Create an instance: `const place = client.Place()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
+| `description` | `string` | Detailed description of the place |
+| `id` | `string` | Unique identifier for the place |
+| `imageUrl` | `string` | URL to an image of the place |
 | `location` | `Record<string, any>` |  |
-| `name` | `string` |  |
-| `religion` | `string` |  |
-| `significance` | `string` |  |
-| `type` | `string` |  |
-| `website` | `string` |  |
-| `yearEstablished` | `number` |  |
+| `name` | `string` | Name of the place of worship |
+| `religion` | `string` | Primary religion or faith tradition |
+| `significance` | `string` | Historical or spiritual significance |
+| `type` | `string` | Type of worship site |
+| `website` | `string` | Official website URL |
+| `yearEstablished` | `number` | Year the place was established or built |
 
 #### Example: List
 
@@ -371,14 +371,14 @@ Create an instance: `const tradition = client.Tradition()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `culturalSignificance` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `observances` | `any[]` |  |
+| `culturalSignificance` | `string` | Cultural and historical significance |
+| `description` | `string` | Detailed description of the tradition |
+| `id` | `string` | Unique identifier for the tradition |
+| `name` | `string` | Name of the religious tradition or practice |
+| `observances` | `any[]` | Regular observances or ceremonies |
 | `origin` | `Record<string, any>` |  |
-| `practices` | `any[]` |  |
-| `religion` | `string` |  |
+| `practices` | `any[]` | List of associated practices or rituals |
+| `religion` | `string` | Associated religion |
 
 #### Example: List
 

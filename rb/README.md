@@ -238,16 +238,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `description` | Detailed description of the place |
+| `id` | Unique identifier for the place |
+| `imageUrl` | URL to an image of the place |
 | `location` |  |
-| `name` |  |
-| `religion` |  |
-| `significance` |  |
-| `type` |  |
-| `website` |  |
-| `yearEstablished` |  |
+| `name` | Name of the place of worship |
+| `religion` | Primary religion or faith tradition |
+| `significance` | Historical or spiritual significance |
+| `type` | Type of worship site |
+| `website` | Official website URL |
+| `yearEstablished` | Year the place was established or built |
 
 Operations: List.
 
@@ -257,14 +257,14 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `culturalSignificance` |  |
-| `description` |  |
-| `id` |  |
-| `name` |  |
-| `observances` |  |
+| `culturalSignificance` | Cultural and historical significance |
+| `description` | Detailed description of the tradition |
+| `id` | Unique identifier for the tradition |
+| `name` | Name of the religious tradition or practice |
+| `observances` | Regular observances or ceremonies |
 | `origin` |  |
-| `practices` |  |
-| `religion` |  |
+| `practices` | List of associated practices or rituals |
+| `religion` | Associated religion |
 
 Operations: List.
 
@@ -289,16 +289,16 @@ Create an instance: `place = client.Place`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `id` | `String` |  |
-| `imageUrl` | `String` |  |
+| `description` | `String` | Detailed description of the place |
+| `id` | `String` | Unique identifier for the place |
+| `imageUrl` | `String` | URL to an image of the place |
 | `location` | `Hash` |  |
-| `name` | `String` |  |
-| `religion` | `String` |  |
-| `significance` | `String` |  |
-| `type` | `String` |  |
-| `website` | `String` |  |
-| `yearEstablished` | `Integer` |  |
+| `name` | `String` | Name of the place of worship |
+| `religion` | `String` | Primary religion or faith tradition |
+| `significance` | `String` | Historical or spiritual significance |
+| `type` | `String` | Type of worship site |
+| `website` | `String` | Official website URL |
+| `yearEstablished` | `Integer` | Year the place was established or built |
 
 #### Example: List
 
@@ -322,14 +322,14 @@ Create an instance: `tradition = client.Tradition`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `culturalSignificance` | `String` |  |
-| `description` | `String` |  |
-| `id` | `String` |  |
-| `name` | `String` |  |
-| `observances` | `Array` |  |
+| `culturalSignificance` | `String` | Cultural and historical significance |
+| `description` | `String` | Detailed description of the tradition |
+| `id` | `String` | Unique identifier for the tradition |
+| `name` | `String` | Name of the religious tradition or practice |
+| `observances` | `Array` | Regular observances or ceremonies |
 | `origin` | `Hash` |  |
-| `practices` | `Array` |  |
-| `religion` | `String` |  |
+| `practices` | `Array` | List of associated practices or rituals |
+| `religion` | `String` | Associated religion |
 
 #### Example: List
 

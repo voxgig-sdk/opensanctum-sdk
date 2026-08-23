@@ -8,26 +8,31 @@ main: kit: entity: tradition: {
     {
       name: "culturalSignificance"
       req: false
+      short: "Cultural and historical significance"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Detailed description of the tradition"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the tradition"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the religious tradition or practice"
       type: "`$STRING`"
     }
     {
       name: "observances"
       req: false
+      short: "Regular observances or ceremonies"
       type: "`$ARRAY`"
     }
     {
@@ -38,11 +43,13 @@ main: kit: entity: tradition: {
     {
       name: "practices"
       req: false
+      short: "List of associated practices or rituals"
       type: "`$ARRAY`"
     }
     {
       name: "religion"
       req: false
+      short: "Associated religion"
       type: "`$STRING`"
     }
   ]

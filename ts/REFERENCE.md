@@ -128,16 +128,16 @@ const place = client.Place()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `imageUrl` | `string` | No |  |
+| `description` | `string` | No | Detailed description of the place |
+| `id` | `string` | No | Unique identifier for the place |
+| `imageUrl` | `string` | No | URL to an image of the place |
 | `location` | `Record<string, any>` | No |  |
-| `name` | `string` | No |  |
-| `religion` | `string` | No |  |
-| `significance` | `string` | No |  |
-| `type` | `string` | No |  |
-| `website` | `string` | No |  |
-| `yearEstablished` | `number` | No |  |
+| `name` | `string` | No | Name of the place of worship |
+| `religion` | `string` | No | Primary religion or faith tradition |
+| `significance` | `string` | No | Historical or spiritual significance |
+| `type` | `string` | No | Type of worship site |
+| `website` | `string` | No | Official website URL |
+| `yearEstablished` | `number` | No | Year the place was established or built |
 
 ### Operations
 
@@ -187,14 +187,14 @@ const tradition = client.Tradition()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `culturalSignificance` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `observances` | `any[]` | No |  |
+| `culturalSignificance` | `string` | No | Cultural and historical significance |
+| `description` | `string` | No | Detailed description of the tradition |
+| `id` | `string` | No | Unique identifier for the tradition |
+| `name` | `string` | No | Name of the religious tradition or practice |
+| `observances` | `any[]` | No | Regular observances or ceremonies |
 | `origin` | `Record<string, any>` | No |  |
-| `practices` | `any[]` | No |  |
-| `religion` | `string` | No |  |
+| `practices` | `any[]` | No | List of associated practices or rituals |
+| `religion` | `string` | No | Associated religion |
 
 ### Operations
 

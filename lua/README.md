@@ -232,16 +232,16 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `description` | Detailed description of the place |
+| `id` | Unique identifier for the place |
+| `imageUrl` | URL to an image of the place |
 | `location` |  |
-| `name` |  |
-| `religion` |  |
-| `significance` |  |
-| `type` |  |
-| `website` |  |
-| `yearEstablished` |  |
+| `name` | Name of the place of worship |
+| `religion` | Primary religion or faith tradition |
+| `significance` | Historical or spiritual significance |
+| `type` | Type of worship site |
+| `website` | Official website URL |
+| `yearEstablished` | Year the place was established or built |
 
 Operations: List.
 
@@ -251,14 +251,14 @@ API path: `/places`
 
 | Field | Description |
 | --- | --- |
-| `culturalSignificance` |  |
-| `description` |  |
-| `id` |  |
-| `name` |  |
-| `observances` |  |
+| `culturalSignificance` | Cultural and historical significance |
+| `description` | Detailed description of the tradition |
+| `id` | Unique identifier for the tradition |
+| `name` | Name of the religious tradition or practice |
+| `observances` | Regular observances or ceremonies |
 | `origin` |  |
-| `practices` |  |
-| `religion` |  |
+| `practices` | List of associated practices or rituals |
+| `religion` | Associated religion |
 
 Operations: List.
 
@@ -283,16 +283,16 @@ Create an instance: `local place = client:Place(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
+| `description` | `string` | Detailed description of the place |
+| `id` | `string` | Unique identifier for the place |
+| `imageUrl` | `string` | URL to an image of the place |
 | `location` | `table` |  |
-| `name` | `string` |  |
-| `religion` | `string` |  |
-| `significance` | `string` |  |
-| `type` | `string` |  |
-| `website` | `string` |  |
-| `yearEstablished` | `number` |  |
+| `name` | `string` | Name of the place of worship |
+| `religion` | `string` | Primary religion or faith tradition |
+| `significance` | `string` | Historical or spiritual significance |
+| `type` | `string` | Type of worship site |
+| `website` | `string` | Official website URL |
+| `yearEstablished` | `number` | Year the place was established or built |
 
 #### Example: List
 
@@ -315,14 +315,14 @@ Create an instance: `local tradition = client:Tradition(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `culturalSignificance` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `observances` | `table` |  |
+| `culturalSignificance` | `string` | Cultural and historical significance |
+| `description` | `string` | Detailed description of the tradition |
+| `id` | `string` | Unique identifier for the tradition |
+| `name` | `string` | Name of the religious tradition or practice |
+| `observances` | `table` | Regular observances or ceremonies |
 | `origin` | `table` |  |
-| `practices` | `table` |  |
-| `religion` | `string` |  |
+| `practices` | `table` | List of associated practices or rituals |
+| `religion` | `string` | Associated religion |
 
 #### Example: List
 

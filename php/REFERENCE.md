@@ -96,16 +96,16 @@ $place = $client->Place();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `imageUrl` | `string` | No |  |
+| `description` | `string` | No | Detailed description of the place |
+| `id` | `string` | No | Unique identifier for the place |
+| `imageUrl` | `string` | No | URL to an image of the place |
 | `location` | `array` | No |  |
-| `name` | `string` | No |  |
-| `religion` | `string` | No |  |
-| `significance` | `string` | No |  |
-| `type` | `string` | No |  |
-| `website` | `string` | No |  |
-| `yearEstablished` | `int` | No |  |
+| `name` | `string` | No | Name of the place of worship |
+| `religion` | `string` | No | Primary religion or faith tradition |
+| `significance` | `string` | No | Historical or spiritual significance |
+| `type` | `string` | No | Type of worship site |
+| `website` | `string` | No | Official website URL |
+| `yearEstablished` | `int` | No | Year the place was established or built |
 
 ### Operations
 
@@ -157,14 +157,14 @@ $tradition = $client->Tradition();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `culturalSignificance` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `observances` | `array` | No |  |
+| `culturalSignificance` | `string` | No | Cultural and historical significance |
+| `description` | `string` | No | Detailed description of the tradition |
+| `id` | `string` | No | Unique identifier for the tradition |
+| `name` | `string` | No | Name of the religious tradition or practice |
+| `observances` | `array` | No | Regular observances or ceremonies |
 | `origin` | `array` | No |  |
-| `practices` | `array` | No |  |
-| `religion` | `string` | No |  |
+| `practices` | `array` | No | List of associated practices or rituals |
+| `religion` | `string` | No | Associated religion |
 
 ### Operations
 
