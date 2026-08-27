@@ -42,6 +42,7 @@ class OpensanctumConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
