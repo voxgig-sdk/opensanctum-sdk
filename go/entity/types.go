@@ -28,16 +28,11 @@ type Place struct {
 
 // PlaceListMatch is the typed request payload for Place.ListTyped.
 type PlaceListMatch struct {
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Location *map[string]any `json:"location,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Country *string `json:"country,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
 	Religion *string `json:"religion,omitempty"`
-	Significance *string `json:"significance,omitempty"`
 	Type *string `json:"type,omitempty"`
-	Website *string `json:"website,omitempty"`
-	YearEstablished *int `json:"yearEstablished,omitempty"`
 }
 
 // Tradition is the typed data model for the tradition entity.
@@ -54,14 +49,11 @@ type Tradition struct {
 
 // TraditionListMatch is the typed request payload for Tradition.ListTyped.
 type TraditionListMatch struct {
-	CulturalSignificance *string `json:"culturalSignificance,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Observances *[]any `json:"observances,omitempty"`
-	Origin *map[string]any `json:"origin,omitempty"`
-	Practices *[]any `json:"practices,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	Region *string `json:"region,omitempty"`
 	Religion *string `json:"religion,omitempty"`
+	Search *string `json:"search,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

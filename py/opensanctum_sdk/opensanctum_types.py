@@ -30,16 +30,11 @@ class Place(TypedDict, total=False):
 
 
 class PlaceListMatch(TypedDict, total=False):
-    description: str
-    id: str
-    imageUrl: str
-    location: dict
-    name: str
+    country: str
+    limit: int
+    offset: int
     religion: str
-    significance: str
     type: str
-    website: str
-    yearEstablished: int
 
 
 class Tradition(TypedDict, total=False):
@@ -54,11 +49,8 @@ class Tradition(TypedDict, total=False):
 
 
 class TraditionListMatch(TypedDict, total=False):
-    culturalSignificance: str
-    description: str
-    id: str
-    name: str
-    observances: list
-    origin: dict
-    practices: list
+    limit: int
+    offset: int
+    region: str
     religion: str
+    search: str

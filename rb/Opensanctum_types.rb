@@ -55,46 +55,26 @@ Place = Struct.new(
 
 # Request payload for Place#list.
 #
-# @!attribute [rw] description
+# @!attribute [rw] country
 #   @return [String, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
-# @!attribute [rw] imageUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] location
-#   @return [Hash, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
+# @!attribute [rw] offset
+#   @return [Integer, nil]
 #
 # @!attribute [rw] religion
 #   @return [String, nil]
 #
-# @!attribute [rw] significance
-#   @return [String, nil]
-#
 # @!attribute [rw] type
 #   @return [String, nil]
-#
-# @!attribute [rw] website
-#   @return [String, nil]
-#
-# @!attribute [rw] yearEstablished
-#   @return [Integer, nil]
 PlaceListMatch = Struct.new(
-  :description,
-  :id,
-  :imageUrl,
-  :location,
-  :name,
+  :country,
+  :limit,
+  :offset,
   :religion,
-  :significance,
   :type,
-  :website,
-  :yearEstablished,
   keyword_init: true
 )
 
@@ -137,38 +117,26 @@ Tradition = Struct.new(
 
 # Request payload for Tradition#list.
 #
-# @!attribute [rw] culturalSignificance
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] offset
+#   @return [Integer, nil]
+#
+# @!attribute [rw] region
 #   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] observances
-#   @return [Array, nil]
-#
-# @!attribute [rw] origin
-#   @return [Hash, nil]
-#
-# @!attribute [rw] practices
-#   @return [Array, nil]
 #
 # @!attribute [rw] religion
 #   @return [String, nil]
+#
+# @!attribute [rw] search
+#   @return [String, nil]
 TraditionListMatch = Struct.new(
-  :culturalSignificance,
-  :description,
-  :id,
-  :name,
-  :observances,
-  :origin,
-  :practices,
+  :limit,
+  :offset,
+  :region,
   :religion,
+  :search,
   keyword_init: true
 )
 

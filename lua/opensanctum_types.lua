@@ -19,16 +19,11 @@
 ---@field yearEstablished? number
 
 ---@class PlaceListMatch
----@field description? string
----@field id? string
----@field imageUrl? string
----@field location? table
----@field name? string
+---@field country? string
+---@field limit? number
+---@field offset? number
 ---@field religion? string
----@field significance? string
 ---@field type? string
----@field website? string
----@field yearEstablished? number
 
 ---@class Tradition
 ---@field culturalSignificance? string
@@ -41,14 +36,11 @@
 ---@field religion? string
 
 ---@class TraditionListMatch
----@field culturalSignificance? string
----@field description? string
----@field id? string
----@field name? string
----@field observances? table
----@field origin? table
----@field practices? table
+---@field limit? number
+---@field offset? number
+---@field region? string
 ---@field religion? string
+---@field search? string
 
 local M = {}
 

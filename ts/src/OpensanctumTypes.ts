@@ -19,16 +19,11 @@ export interface Place {
 }
 
 export interface PlaceListMatch {
-  description?: string
-  id?: string
-  imageUrl?: string
-  location?: Record<string, any>
-  name?: string
+  country?: string
+  limit?: number
+  offset?: number
   religion?: string
-  significance?: string
   type?: string
-  website?: string
-  yearEstablished?: number
 }
 
 export interface Tradition {
@@ -43,13 +38,10 @@ export interface Tradition {
 }
 
 export interface TraditionListMatch {
-  culturalSignificance?: string
-  description?: string
-  id?: string
-  name?: string
-  observances?: any[]
-  origin?: Record<string, any>
-  practices?: any[]
+  limit?: number
+  offset?: number
+  region?: string
   religion?: string
+  search?: string
 }
 

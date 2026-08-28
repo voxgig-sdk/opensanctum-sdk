@@ -30,16 +30,11 @@ class Place
 /** Request payload for Place#list. */
 class PlaceListMatch
 {
-    public ?string $description = null;
-    public ?string $id = null;
-    public ?string $imageUrl = null;
-    public ?array $location = null;
-    public ?string $name = null;
+    public ?string $country = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
     public ?string $religion = null;
-    public ?string $significance = null;
     public ?string $type = null;
-    public ?string $website = null;
-    public ?int $yearEstablished = null;
 }
 
 /** Tradition entity data model. */
@@ -58,13 +53,10 @@ class Tradition
 /** Request payload for Tradition#list. */
 class TraditionListMatch
 {
-    public ?string $culturalSignificance = null;
-    public ?string $description = null;
-    public ?string $id = null;
-    public ?string $name = null;
-    public ?array $observances = null;
-    public ?array $origin = null;
-    public ?array $practices = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public ?string $region = null;
     public ?string $religion = null;
+    public ?string $search = null;
 }
 
