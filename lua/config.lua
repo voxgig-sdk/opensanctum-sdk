@@ -43,6 +43,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "imageUrl",
             ["short"] = "URL to an image of the place",
             ["type"] = "`$STRING`",
@@ -72,6 +73,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "website",
             ["short"] = "Official website URL",
             ["type"] = "`$STRING`",
@@ -81,6 +83,10 @@ local function make_config()
             ["short"] = "Year the place was established or built",
             ["type"] = "`$INTEGER`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "place",
         ["op"] = {
@@ -128,8 +134,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/places",
-                ["parts"] = {
-                  "places",
+                ["segments"] = {
+                  {
+                    ["lit"] = "places",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -143,6 +151,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "places",
                 },
               },
             },
@@ -194,6 +205,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "tradition",
         ["op"] = {
           ["list"] = {
@@ -240,8 +255,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/traditions",
-                ["parts"] = {
-                  "traditions",
+                ["segments"] = {
+                  {
+                    ["lit"] = "traditions",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -255,6 +272,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "traditions",
                 },
               },
             },

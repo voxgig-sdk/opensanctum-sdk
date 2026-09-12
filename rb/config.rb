@@ -55,6 +55,7 @@ module OpensanctumConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "imageUrl",
               "short" => "URL to an image of the place",
               "type" => "`$STRING`",
@@ -84,6 +85,7 @@ module OpensanctumConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "website",
               "short" => "Official website URL",
               "type" => "`$STRING`",
@@ -94,6 +96,10 @@ module OpensanctumConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "place",
           "op" => {
             "list" => {
@@ -140,8 +146,10 @@ module OpensanctumConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/places",
-                  "parts" => [
-                    "places",
+                  "segments" => [
+                    {
+                      "lit" => "places",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -156,6 +164,9 @@ module OpensanctumConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "places",
+                  ],
                 },
               ],
             },
@@ -206,6 +217,10 @@ module OpensanctumConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "tradition",
           "op" => {
             "list" => {
@@ -252,8 +267,10 @@ module OpensanctumConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/traditions",
-                  "parts" => [
-                    "traditions",
+                  "segments" => [
+                    {
+                      "lit" => "traditions",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -268,6 +285,9 @@ module OpensanctumConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "traditions",
+                  ],
                 },
               ],
             },

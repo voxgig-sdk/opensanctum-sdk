@@ -69,6 +69,7 @@ class OpensanctumConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'imageUrl',
               'short' => 'URL to an image of the place',
               'type' => '`$STRING`',
@@ -98,6 +99,7 @@ class OpensanctumConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'website',
               'short' => 'Official website URL',
               'type' => '`$STRING`',
@@ -107,6 +109,10 @@ class OpensanctumConfig
               'short' => 'Year the place was established or built',
               'type' => '`$INTEGER`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'place',
           'op' => [
@@ -154,8 +160,10 @@ class OpensanctumConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/places',
-                  'parts' => [
-                    'places',
+                  'segments' => [
+                    [
+                      'lit' => 'places',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -169,6 +177,9 @@ class OpensanctumConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'places',
                   ],
                 ],
               ],
@@ -220,6 +231,10 @@ class OpensanctumConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'tradition',
           'op' => [
             'list' => [
@@ -266,8 +281,10 @@ class OpensanctumConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/traditions',
-                  'parts' => [
-                    'traditions',
+                  'segments' => [
+                    [
+                      'lit' => 'traditions',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -281,6 +298,9 @@ class OpensanctumConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'traditions',
                   ],
                 ],
               ],

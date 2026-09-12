@@ -108,8 +108,10 @@ main: kit: entity: tradition: {
           }
           method: "GET"
           orig: "/traditions"
-          parts: [
-            "traditions"
+          segments: [
+            {
+              lit: "traditions"
+            }
           ]
           select: {
             exist: [

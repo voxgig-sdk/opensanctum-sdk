@@ -18,6 +18,7 @@ main: kit: entity: place: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "imageUrl"
       req: false
       short: "URL to an image of the place"
@@ -53,6 +54,7 @@ main: kit: entity: place: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "website"
       req: false
       short: "Official website URL"
@@ -120,8 +122,10 @@ main: kit: entity: place: {
           }
           method: "GET"
           orig: "/places"
-          parts: [
-            "places"
+          segments: [
+            {
+              lit: "places"
+            }
           ]
           select: {
             exist: [
