@@ -105,7 +105,7 @@ local results, err = client:Place():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/opensanctum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/opensanctum-sdk/releases) |
+| TypeScript | `@voxgig-sdk/opensanctum-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/opensanctum-sdk/releases) |
 | Python | `voxgig-sdk-opensanctum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/opensanctum-sdk/releases) |
 | PHP | `voxgig-sdk/opensanctum` | publish pending — [install from git tag](https://github.com/voxgig-sdk/opensanctum-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/opensanctum-sdk/go` | `go get github.com/voxgig-sdk/opensanctum-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Place():list()
 ### TypeScript
 
 ```ts
-import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
+import { OpensanctumSDK } from '@voxgig-sdk/opensanctum-sdk'
 
 const client = new OpensanctumSDK()
 

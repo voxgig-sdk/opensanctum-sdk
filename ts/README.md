@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
+import { OpensanctumSDK } from '@voxgig-sdk/opensanctum-sdk'
 
 const client = new OpensanctumSDK()
 ```
@@ -469,7 +469,7 @@ opensanctum/
 Import the SDK from the package root:
 
 ```ts
-import { OpensanctumSDK } from '@voxgig-sdk/opensanctum'
+import { OpensanctumSDK } from '@voxgig-sdk/opensanctum-sdk'
 ```
 
 ### Entity state
