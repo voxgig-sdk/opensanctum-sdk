@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { OpensanctumSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('PlaceEntity', async () => {
 
     const live = 'TRUE' === process.env.OPENSANCTUM_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'place.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'place.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set OPENSANCTUM_TEST_PLACE_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"description","req":false,"short":"Detailed description of the place","type":"`$STRING`","index$":0},{"active":true,"name":"id","req":false,"short":"Unique identifier for the place","type":"`$STRING`","index$":1},{"active":true,"format":"uri","name":"imageUrl","req":false,"short":"URL to an image of the place","type":"`$STRING`","index$":2},{"active":true,"name":"location","req":false,"type":"`$OBJECT`","index$":3},{"active":true,"name":"name","req":false,"short":"Name of the place of worship","type":"`$STRING`","index$":4},{"active":true,"name":"religion","req":false,"short":"Primary religion or faith tradition","type":"`$STRING`","index$":5},{"active":true,"name":"significance","req":false,"short":"Historical or spiritual significance","type":"`$STRING`","index$":6},{"active":true,"name":"type","req":false,"short":"Type of worship site","type":"`$STRING`","index$":7},{"active":true,"format":"uri","name":"website","req":false,"short":"Official website URL","type":"`$STRING`","index$":8},{"active":true,"name":"yearEstablished","req":false,"short":"Year the place was established or built","type":"`$INTEGER`","index$":9}],"id":{"field":"id","name":"id"},"name":"place","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"country","orig":"country","reqd":false,"type":"`$STRING`","index$":0},{"active":true,"example":20,"kind":"query","name":"limit","orig":"limit","reqd":false,"type":"`$INTEGER`","index$":1},{"active":true,"example":0,"kind":"query","name":"offset","orig":"offset","reqd":false,"type":"`$INTEGER`","index$":2},{"active":true,"kind":"query","name":"religion","orig":"religion","reqd":false,"type":"`$STRING`","index$":3},{"active":true,"kind":"query","name":"type","orig":"type","reqd":false,"type":"`$STRING`","index$":4}]},"contract":{"id":"GET /places","json":"{\"operationId\":\"getPlaces\",\"parameters\":[{\"description\":\"Filter places by country\",\"in\":\"query\",\"name\":\"country\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter places by religion or faith tradition\",\"in\":\"query\",\"name\":\"religion\",\"required\":false,\"schema\":{\"enum\":[\"Christianity\",\"Islam\",\"Hinduism\",\"Buddhism\",\"Judaism\",\"Sikhism\",\"Other\"],\"type\":\"string\"}},{\"description\":\"Filter places by type of worship site\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"Temple\",\"Church\",\"Mosque\",\"Synagogue\",\"Shrine\",\"Cathedral\",\"Monastery\"],\"type\":\"string\"}},{\"description\":\"Maximum number of results to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of results to skip for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"minimum\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"description\":{\"description\":\"Detailed description of the place\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the place\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"URL to an image of the place\",\"format\":\"uri\",\"type\":\"string\"},\"location\":{\"properties\":{\"address\":{\"type\":\"string\"},\"city\":{\"type\":\"string\"},\"coordinates\":{\"properties\":{\"latitude\":{\"format\":\"double\",\"type\":\"number\"},\"longitude\":{\"format\":\"double\",\"type\":\"number\"}},\"type\":\"object\"},\"country\":{\"type\":\"string\"}},\"type\":\"object\"},\"name\":{\"description\":\"Name of the place of worship\",\"type\":\"string\"},\"religion\":{\"description\":\"Primary religion or faith tradition\",\"type\":\"string\"},\"significance\":{\"description\":\"Historical or spiritual significance\",\"type\":\"string\"},\"type\":{\"description\":\"Type of worship site\",\"enum\":[\"Temple\",\"Church\",\"Mosque\",\"Synagogue\",\"Shrine\",\"Cathedral\",\"Monastery\"],\"type\":\"string\"},\"website\":{\"description\":\"Official website URL\",\"format\":\"uri\",\"type\":\"string\"},\"yearEstablished\":{\"description\":\"Year the place was established or built\",\"type\":\"integer\"}},\"type\":\"object\"},\"type\":\"array\"},\"pagination\":{\"properties\":{\"limit\":{\"type\":\"integer\"},\"offset\":{\"type\":\"integer\"},\"total\":{\"type\":\"integer\"}},\"type\":\"object\"},\"success\":{\"example\":true,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of places\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"type\":\"string\"},\"message\":{\"type\":\"string\"}},\"type\":\"object\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"properties\":{\"code\":{\"type\":\"string\"},\"message\":{\"type\":\"string\"}},\"type\":\"object\"},\"success\":{\"example\":false,\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/places","segments":[{"lit":"places"}],"select":{"exist":["country","limit","offset","religion","type"]},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"place","name__orig":"place","Name":"Place","name_":"place","name-":"place","NAME":"PLACE","index$":0}, {"active":true,"entity":"place","key$":"BasicPlaceFlow","kind":"basic","name":"BasicPlaceFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"place_ref01"}}],"index$":0}]}, 'Place')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['OPENSANCTUM_TEST_PLACE_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'OPENSANCTUM_TEST_PLACE_ENTID': idmap,
     'OPENSANCTUM_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.OPENSANCTUM_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['OPENSANCTUM_TEST_PLACE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new OpensanctumSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.OPENSANCTUM_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

@@ -1,12 +1,18 @@
 # Opensanctum SDK feature factory
 
 from opensanctum_sdk.feature.base_feature import OpensanctumBaseFeature
+from opensanctum_sdk.feature.ratelimit_feature import OpensanctumRatelimitFeature
+from opensanctum_sdk.feature.retry_feature import OpensanctumRetryFeature
 from opensanctum_sdk.feature.test_feature import OpensanctumTestFeature
+from opensanctum_sdk.feature.timeout_feature import OpensanctumTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: OpensanctumBaseFeature(),
+    "ratelimit": lambda: OpensanctumRatelimitFeature(),
+    "retry": lambda: OpensanctumRetryFeature(),
     "test": lambda: OpensanctumTestFeature(),
+    "timeout": lambda: OpensanctumTimeoutFeature(),
 }
 
 
