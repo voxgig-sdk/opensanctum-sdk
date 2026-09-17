@@ -1,4 +1,4 @@
 # Entity Models
 
-@"place.aon"
-@"tradition.aon"
+@"./place.aon"
+@"./tradition.aon"

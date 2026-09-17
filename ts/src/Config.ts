@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      place: {
-      },
-
-      tradition: {
-      },
-
+        place: {
+        },
+  
+        tradition: {
+        },
+  
     }
   }
 

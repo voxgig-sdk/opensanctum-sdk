@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicPlaceFlow.aon"
-@"BasicTraditionFlow.aon"
+@"./BasicPlaceFlow.aon"
+@"./BasicTraditionFlow.aon"
