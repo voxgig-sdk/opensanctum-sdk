@@ -1,0 +1,165 @@
+# Entity: place
+
+main: kit: entity: place: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the place"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the place"
+      t: "`$STRING`"
+    }
+    imageUrl: {
+      fo: "uri"
+      h: "Image Url"
+      n: "imageUrl"
+      r: false
+      sh: "URL to an image of the place"
+      t: "`$STRING`"
+    }
+    location: {
+      h: "Location"
+      n: "location"
+      r: false
+      t: "`$OBJECT`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the place of worship"
+      t: "`$STRING`"
+    }
+    religion: {
+      h: "Religion"
+      n: "religion"
+      r: false
+      sh: "Primary religion or faith tradition"
+      t: "`$STRING`"
+    }
+    significance: {
+      h: "Significance"
+      n: "significance"
+      r: false
+      sh: "Historical or spiritual significance"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Type of worship site"
+      t: "`$STRING`"
+    }
+    website: {
+      fo: "uri"
+      h: "Website"
+      n: "website"
+      r: false
+      sh: "Official website URL"
+      t: "`$STRING`"
+    }
+    yearEstablished: {
+      h: "Year Established"
+      n: "yearEstablished"
+      r: false
+      sh: "Year the place was established or built"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "place"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /places"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "country"
+                or: "country"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "religion"
+                or: "religion"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/places"
+          q: {
+            exist: [
+              "country"
+              "limit"
+              "offset"
+              "religion"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "places"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

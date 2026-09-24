@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlaceEntity = void 0;
 const OpensanctumEntityBase_1 = require("../OpensanctumEntityBase");
-// TODO: needs Entity superclass
 class PlaceEntity extends OpensanctumEntityBase_1.OpensanctumEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

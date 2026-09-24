@@ -1,0 +1,149 @@
+# Entity: tradition
+
+main: kit: entity: tradition: {
+
+  alias: field: {}
+
+  fields: {
+    culturalSignificance: {
+      h: "Cultural Significance"
+      n: "culturalSignificance"
+      r: false
+      sh: "Cultural and historical significance"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the tradition"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the tradition"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the religious tradition or practice"
+      t: "`$STRING`"
+    }
+    observances: {
+      h: "Observances"
+      n: "observances"
+      r: false
+      sh: "Regular observances or ceremonies"
+      t: "`$ARRAY`"
+    }
+    origin: {
+      h: "Origin"
+      n: "origin"
+      r: false
+      t: "`$OBJECT`"
+    }
+    practices: {
+      h: "Practices"
+      n: "practices"
+      r: false
+      sh: "List of associated practices or rituals"
+      t: "`$ARRAY`"
+    }
+    religion: {
+      h: "Religion"
+      n: "religion"
+      r: false
+      sh: "Associated religion"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "tradition"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /traditions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "region"
+                or: "region"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "religion"
+                or: "religion"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "search"
+                or: "search"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/traditions"
+          q: {
+            exist: [
+              "limit"
+              "offset"
+              "region"
+              "religion"
+              "search"
+            ]
+          }
+          s: [
+            {
+              lit: "traditions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,7 +1,7 @@
 // Typed models for the Opensanctum SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // Place is the typed data model for the place entity.
 type Place struct {
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Location *map[string]any `json:"location,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Religion *string `json:"religion,omitempty"`
-	Significance *string `json:"significance,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Website *string `json:"website,omitempty"`
-	YearEstablished *int `json:"yearEstablished,omitempty"`
 }
 
 // PlaceListMatch is the typed request payload for Place.ListTyped.
@@ -37,14 +27,6 @@ type PlaceListMatch struct {
 
 // Tradition is the typed data model for the tradition entity.
 type Tradition struct {
-	CulturalSignificance *string `json:"culturalSignificance,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Observances *[]any `json:"observances,omitempty"`
-	Origin *map[string]any `json:"origin,omitempty"`
-	Practices *[]any `json:"practices,omitempty"`
-	Religion *string `json:"religion,omitempty"`
 }
 
 // TraditionListMatch is the typed request payload for Tradition.ListTyped.

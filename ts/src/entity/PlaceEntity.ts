@@ -19,7 +19,6 @@ import type {
   PlaceListMatch,
 } from '../OpensanctumTypes'
 
-// TODO: needs Entity superclass
 class PlaceEntity extends OpensanctumEntityBase<Place> {
 
   constructor(client: OpensanctumSDK, entopts: any) {

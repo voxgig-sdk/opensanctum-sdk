@@ -92,54 +92,64 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the place",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the place",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the place",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the place",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "imageUrl",
-						"short": "URL to an image of the place",
+						"title": "Image Url",
 						"type": "`$STRING`",
+						"short": "URL to an image of the place",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "location",
+						"title": "Location",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the place of worship",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the place of worship",
 					},
 					map[string]any{
 						"name": "religion",
-						"short": "Primary religion or faith tradition",
+						"title": "Religion",
 						"type": "`$STRING`",
+						"short": "Primary religion or faith tradition",
 					},
 					map[string]any{
 						"name": "significance",
-						"short": "Historical or spiritual significance",
+						"title": "Significance",
 						"type": "`$STRING`",
+						"short": "Historical or spiritual significance",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of worship site",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of worship site",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "website",
-						"short": "Official website URL",
+						"title": "Website",
 						"type": "`$STRING`",
+						"short": "Official website URL",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "yearEstablished",
-						"short": "Year the place was established or built",
+						"title": "Year Established",
 						"type": "`$INTEGER`",
+						"short": "Year the place was established or built",
 					},
 				},
 				"id": map[string]any{
@@ -153,48 +163,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "country",
-											"orig": "country",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "religion",
-											"orig": "religion",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/places",
 								"segments": []any{
 									map[string]any{
 										"lit": "places",
+									},
+								},
+								"parts": []any{
+									"places",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "country",
+											"orig": "country",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "religion",
+											"orig": "religion",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -205,13 +223,6 @@ func MakeConfig() map[string]any {
 										"religion",
 										"type",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"places",
 								},
 							},
 						},
@@ -225,42 +236,50 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "culturalSignificance",
-						"short": "Cultural and historical significance",
+						"title": "Cultural Significance",
 						"type": "`$STRING`",
+						"short": "Cultural and historical significance",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the tradition",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the tradition",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the tradition",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the tradition",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the religious tradition or practice",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the religious tradition or practice",
 					},
 					map[string]any{
 						"name": "observances",
-						"short": "Regular observances or ceremonies",
+						"title": "Observances",
 						"type": "`$ARRAY`",
+						"short": "Regular observances or ceremonies",
 					},
 					map[string]any{
 						"name": "origin",
+						"title": "Origin",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "practices",
-						"short": "List of associated practices or rituals",
+						"title": "Practices",
 						"type": "`$ARRAY`",
+						"short": "List of associated practices or rituals",
 					},
 					map[string]any{
 						"name": "religion",
-						"short": "Associated religion",
+						"title": "Religion",
 						"type": "`$STRING`",
+						"short": "Associated religion",
 					},
 				},
 				"id": map[string]any{
@@ -274,48 +293,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "region",
-											"orig": "region",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "religion",
-											"orig": "religion",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "search",
-											"orig": "search",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/traditions",
 								"segments": []any{
 									map[string]any{
 										"lit": "traditions",
+									},
+								},
+								"parts": []any{
+									"traditions",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+										map[string]any{
+											"name": "region",
+											"orig": "region",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "religion",
+											"orig": "religion",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "search",
+											"orig": "search",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -326,13 +353,6 @@ func MakeConfig() map[string]any {
 										"religion",
 										"search",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"traditions",
 								},
 							},
 						},

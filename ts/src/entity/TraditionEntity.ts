@@ -19,7 +19,6 @@ import type {
   TraditionListMatch,
 } from '../OpensanctumTypes'
 
-// TODO: needs Entity superclass
 class TraditionEntity extends OpensanctumEntityBase<Tradition> {
 
   constructor(client: OpensanctumSDK, entopts: any) {

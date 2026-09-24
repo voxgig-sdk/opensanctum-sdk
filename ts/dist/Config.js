@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -115,54 +108,64 @@ class Config {
             "fields": [
                 {
                     "name": "description",
-                    "short": "Detailed description of the place",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Detailed description of the place"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the place",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the place"
                 },
                 {
-                    "format": "uri",
                     "name": "imageUrl",
+                    "title": "Image Url",
+                    "type": "`$STRING`",
                     "short": "URL to an image of the place",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "location",
+                    "title": "Location",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the place of worship",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the place of worship"
                 },
                 {
                     "name": "religion",
-                    "short": "Primary religion or faith tradition",
-                    "type": "`$STRING`"
+                    "title": "Religion",
+                    "type": "`$STRING`",
+                    "short": "Primary religion or faith tradition"
                 },
                 {
                     "name": "significance",
-                    "short": "Historical or spiritual significance",
-                    "type": "`$STRING`"
+                    "title": "Significance",
+                    "type": "`$STRING`",
+                    "short": "Historical or spiritual significance"
                 },
                 {
                     "name": "type",
-                    "short": "Type of worship site",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "Type of worship site"
                 },
                 {
-                    "format": "uri",
                     "name": "website",
+                    "title": "Website",
+                    "type": "`$STRING`",
                     "short": "Official website URL",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "yearEstablished",
-                    "short": "Year the place was established or built",
-                    "type": "`$INTEGER`"
+                    "title": "Year Established",
+                    "type": "`$INTEGER`",
+                    "short": "Year the place was established or built"
                 }
             ],
             "id": {
@@ -176,42 +179,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "country",
-                                        "orig": "country",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 20,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "religion",
-                                        "orig": "religion",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/places",
@@ -220,6 +187,50 @@ class Config {
                                     "lit": "places"
                                 }
                             ],
+                            "parts": [
+                                "places"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "country",
+                                        "orig": "country",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "religion",
+                                        "orig": "religion",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "country",
@@ -228,14 +239,7 @@ class Config {
                                     "religion",
                                     "type"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "places"
-                            ]
+                            }
                         }
                     ]
                 }
@@ -248,42 +252,50 @@ class Config {
             "fields": [
                 {
                     "name": "culturalSignificance",
-                    "short": "Cultural and historical significance",
-                    "type": "`$STRING`"
+                    "title": "Cultural Significance",
+                    "type": "`$STRING`",
+                    "short": "Cultural and historical significance"
                 },
                 {
                     "name": "description",
-                    "short": "Detailed description of the tradition",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Detailed description of the tradition"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the tradition",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "Unique identifier for the tradition"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the religious tradition or practice",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the religious tradition or practice"
                 },
                 {
                     "name": "observances",
-                    "short": "Regular observances or ceremonies",
-                    "type": "`$ARRAY`"
+                    "title": "Observances",
+                    "type": "`$ARRAY`",
+                    "short": "Regular observances or ceremonies"
                 },
                 {
                     "name": "origin",
+                    "title": "Origin",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "practices",
-                    "short": "List of associated practices or rituals",
-                    "type": "`$ARRAY`"
+                    "title": "Practices",
+                    "type": "`$ARRAY`",
+                    "short": "List of associated practices or rituals"
                 },
                 {
                     "name": "religion",
-                    "short": "Associated religion",
-                    "type": "`$STRING`"
+                    "title": "Religion",
+                    "type": "`$STRING`",
+                    "short": "Associated religion"
                 }
             ],
             "id": {
@@ -297,42 +309,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 20,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 0,
-                                        "kind": "query",
-                                        "name": "offset",
-                                        "orig": "offset",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "region",
-                                        "orig": "region",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "religion",
-                                        "orig": "religion",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "search",
-                                        "orig": "search",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/traditions",
@@ -341,6 +317,50 @@ class Config {
                                     "lit": "traditions"
                                 }
                             ],
+                            "parts": [
+                                "traditions"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 20
+                                    },
+                                    {
+                                        "name": "offset",
+                                        "orig": "offset",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 0
+                                    },
+                                    {
+                                        "name": "region",
+                                        "orig": "region",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "religion",
+                                        "orig": "religion",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "search",
+                                        "orig": "search",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
@@ -349,14 +369,7 @@ class Config {
                                     "religion",
                                     "search"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "traditions"
-                            ]
+                            }
                         }
                     ]
                 }

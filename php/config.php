@@ -114,54 +114,64 @@ class OpensanctumConfig
           'fields' => [
             [
               'name' => 'description',
-              'short' => 'Detailed description of the place',
+              'title' => 'Description',
               'type' => '`$STRING`',
+              'short' => 'Detailed description of the place',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the place',
+              'title' => 'Id',
               'type' => '`$STRING`',
+              'short' => 'Unique identifier for the place',
             ],
             [
-              'format' => 'uri',
               'name' => 'imageUrl',
-              'short' => 'URL to an image of the place',
+              'title' => 'Image Url',
               'type' => '`$STRING`',
+              'short' => 'URL to an image of the place',
+              'format' => 'uri',
             ],
             [
               'name' => 'location',
+              'title' => 'Location',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the place of worship',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the place of worship',
             ],
             [
               'name' => 'religion',
-              'short' => 'Primary religion or faith tradition',
+              'title' => 'Religion',
               'type' => '`$STRING`',
+              'short' => 'Primary religion or faith tradition',
             ],
             [
               'name' => 'significance',
-              'short' => 'Historical or spiritual significance',
+              'title' => 'Significance',
               'type' => '`$STRING`',
+              'short' => 'Historical or spiritual significance',
             ],
             [
               'name' => 'type',
-              'short' => 'Type of worship site',
+              'title' => 'Type',
               'type' => '`$STRING`',
+              'short' => 'Type of worship site',
             ],
             [
-              'format' => 'uri',
               'name' => 'website',
-              'short' => 'Official website URL',
+              'title' => 'Website',
               'type' => '`$STRING`',
+              'short' => 'Official website URL',
+              'format' => 'uri',
             ],
             [
               'name' => 'yearEstablished',
-              'short' => 'Year the place was established or built',
+              'title' => 'Year Established',
               'type' => '`$INTEGER`',
+              'short' => 'Year the place was established or built',
             ],
           ],
           'id' => [
@@ -175,48 +185,56 @@ class OpensanctumConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'country',
-                        'orig' => 'country',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 20,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'offset',
-                        'orig' => 'offset',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'religion',
-                        'orig' => 'religion',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'type',
-                        'orig' => 'type',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/places',
                   'segments' => [
                     [
                       'lit' => 'places',
+                    ],
+                  ],
+                  'parts' => [
+                    'places',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'country',
+                        'orig' => 'country',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 20,
+                      ],
+                      [
+                        'name' => 'offset',
+                        'orig' => 'offset',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                      [
+                        'name' => 'religion',
+                        'orig' => 'religion',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'type',
+                        'orig' => 'type',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -227,13 +245,6 @@ class OpensanctumConfig
                       'religion',
                       'type',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'places',
                   ],
                 ],
               ],
@@ -247,42 +258,50 @@ class OpensanctumConfig
           'fields' => [
             [
               'name' => 'culturalSignificance',
-              'short' => 'Cultural and historical significance',
+              'title' => 'Cultural Significance',
               'type' => '`$STRING`',
+              'short' => 'Cultural and historical significance',
             ],
             [
               'name' => 'description',
-              'short' => 'Detailed description of the tradition',
+              'title' => 'Description',
               'type' => '`$STRING`',
+              'short' => 'Detailed description of the tradition',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the tradition',
+              'title' => 'Id',
               'type' => '`$STRING`',
+              'short' => 'Unique identifier for the tradition',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the religious tradition or practice',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the religious tradition or practice',
             ],
             [
               'name' => 'observances',
-              'short' => 'Regular observances or ceremonies',
+              'title' => 'Observances',
               'type' => '`$ARRAY`',
+              'short' => 'Regular observances or ceremonies',
             ],
             [
               'name' => 'origin',
+              'title' => 'Origin',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'practices',
-              'short' => 'List of associated practices or rituals',
+              'title' => 'Practices',
               'type' => '`$ARRAY`',
+              'short' => 'List of associated practices or rituals',
             ],
             [
               'name' => 'religion',
-              'short' => 'Associated religion',
+              'title' => 'Religion',
               'type' => '`$STRING`',
+              'short' => 'Associated religion',
             ],
           ],
           'id' => [
@@ -296,48 +315,56 @@ class OpensanctumConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 20,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 0,
-                        'kind' => 'query',
-                        'name' => 'offset',
-                        'orig' => 'offset',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'region',
-                        'orig' => 'region',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'religion',
-                        'orig' => 'religion',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'search',
-                        'orig' => 'search',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/traditions',
                   'segments' => [
                     [
                       'lit' => 'traditions',
+                    ],
+                  ],
+                  'parts' => [
+                    'traditions',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 20,
+                      ],
+                      [
+                        'name' => 'offset',
+                        'orig' => 'offset',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 0,
+                      ],
+                      [
+                        'name' => 'region',
+                        'orig' => 'region',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'religion',
+                        'orig' => 'religion',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'search',
+                        'orig' => 'search',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -348,13 +375,6 @@ class OpensanctumConfig
                       'religion',
                       'search',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'traditions',
                   ],
                 ],
               ],
